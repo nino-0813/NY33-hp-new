@@ -155,18 +155,41 @@ button {
 .brand {
   display: inline-flex;
   align-items: center;
+  gap: 10px;
   min-height: 50px;
+  letter-spacing: 0.01em;
+  transition: opacity 300ms var(--ease);
 }
 
-.brand-logo {
-  display: block;
-  width: 56px;
-  height: 56px;
-  padding: 5px;
-  background: #fff;
-  border-radius: 14px;
-  object-fit: contain;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+.brand:hover {
+  opacity: 0.7;
+}
+
+.brand-mono {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-feature-settings: "ss01", "tnum";
+}
+
+.brand-mono-num {
+  display: inline-block;
+  margin-left: 1px;
+  font-feature-settings: "tnum";
+}
+
+.brand-tag {
+  display: inline-block;
+  padding: 4px 7px 3px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  line-height: 1;
+  text-indent: 0.22em;
 }
 
 .header-sp-items {
@@ -1193,19 +1216,38 @@ button {
 }
 
 .footer-logo {
-  display: inline-block;
-  width: 92px;
-  height: 92px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
   margin-bottom: 28px;
+  color: var(--bg);
+  transition: opacity 300ms var(--ease);
 }
 
-.footer-logo img {
-  width: 100%;
-  height: 100%;
-  padding: 8px;
-  background: #fff;
-  border-radius: 16px;
-  object-fit: contain;
+.footer-logo:hover {
+  opacity: 0.7;
+}
+
+.footer-logo-mono {
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.footer-logo-num {
+  margin-left: 1px;
+}
+
+.footer-logo-tag {
+  padding: 5px 9px 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 2px;
+  line-height: 1;
+  text-indent: 0.24em;
 }
 
 .footer-place address {
@@ -1599,11 +1641,17 @@ button {
     font-size: 10px;
   }
 
-  .brand-logo {
-    width: 48px;
-    height: 48px;
-    padding: 4px;
-    border-radius: 10px;
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-mono {
+    font-size: 21px;
+  }
+
+  .brand-tag {
+    padding: 3px 6px 2px;
+    font-size: 8px;
   }
 
   .fv-copy {

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const navItems = [
@@ -27,7 +26,10 @@ export function SiteHeader() {
       <div className="header-lead">
         <span className="header-copy">尾道・福山のWeb制作なら</span>
         <a className="brand" href="#top" aria-label="合同会社NY33 ホーム">
-          <Image src="/logo.png" alt="合同会社NY33" width={58} height={58} className="brand-logo" priority />
+          <span className="brand-mono" aria-hidden="true">
+            NY<span className="brand-mono-num">33</span>
+          </span>
+          <span className="brand-tag" aria-hidden="true">LLC</span>
         </a>
       </div>
 

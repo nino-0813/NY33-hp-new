@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 
 const footerMenu: { label: string; en: string; links: { label: string; href: string }[] }[] = [
@@ -165,7 +164,10 @@ export function SiteFooter() {
       <div className="footer-main inner-wide">
         <div className="footer-about">
           <a className="footer-logo" href="#top" aria-label="合同会社NY33 ホーム">
-            <Image src="/logo.png" alt="合同会社NY33" width={96} height={96} />
+            <span className="footer-logo-mono" aria-hidden="true">
+              NY<span className="footer-logo-num">33</span>
+            </span>
+            <span className="footer-logo-tag" aria-hidden="true">LLC</span>
           </a>
           <div className="footer-place">
             <address>

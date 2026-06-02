@@ -16,21 +16,22 @@ const footerMenu: { label: string; en: string; links: { label: string; href: str
     label: "サービス情報",
     en: "SERVICE",
     links: [
-      { label: "ホームページ制作", href: "#service" },
+      { label: "Webドック診断", href: "#service" },
+      { label: "修繕・改修", href: "#service" },
       { label: "AI活用支援", href: "#service" },
-      { label: "SEO / AIO", href: "#service" },
-      { label: "WEBコンサルティング", href: "#service" },
-      { label: "地域の橋渡し", href: "#service" }
+      { label: "集客導線整備", href: "#service" },
+      { label: "定期整備（運用）", href: "#service" },
+      { label: "経営伴走", href: "#service" }
     ]
   },
   {
     label: "制作事例",
     en: "PORTFOLIO",
     links: [
-      { label: "ホームページ", href: "#portfolio" },
-      { label: "採用サイト", href: "#portfolio" },
+      { label: "コーポレート整備", href: "#portfolio" },
+      { label: "予約・問い合わせ導線", href: "#portfolio" },
       { label: "店舗・地域サイト", href: "#portfolio" },
-      { label: "ブランディング", href: "#portfolio" }
+      { label: "ブランド整備", href: "#portfolio" }
     ]
   },
   {
@@ -46,13 +47,13 @@ const footerMenu: { label: string; en: string; links: { label: string; href: str
 
 // 取引実績（プレースホルダー）。本番では実際の取引先・カテゴリに差し替えてください。
 const businessRecords = [
-  "尾道市内 地域企業さま",
-  "福山市内 店舗・サービス業さま",
-  "備後エリア スタートアップさま",
-  "医療・クリニックさま",
-  "士業・コンサルティングさま",
-  "観光・宿泊事業者さま",
-  "製造・建設業さま",
+  "尾道・因島 造船関連事業者さま",
+  "瀬戸内 ものづくり・製造業さま",
+  "宿泊・観光事業者さま",
+  "飲食・店舗事業者さま",
+  "建設・工務店・不動産さま",
+  "代替わりを進める家業さま",
+  "医療・士業さま",
   "教育・スクール事業者さま"
 ];
 
@@ -93,30 +94,30 @@ export function SiteFooter() {
 
   return (
     <footer className="site-footer" id="contact">
-      {/* JOIN OUR CIRCLE — recruit / contact CTA */}
+      {/* SET SAIL — recruit / contact CTA */}
       <div className="footer-contact">
         <div className="footer-image" aria-hidden="true" />
         <div className="loop-text" aria-hidden="true">
           <div>
-            <span>JOIN OUR CIRCLE</span>
-            <span>JOIN OUR CIRCLE</span>
-            <span>JOIN OUR CIRCLE</span>
-            <span>JOIN OUR CIRCLE</span>
+            <span>SET SAIL TOGETHER</span>
+            <span>SET SAIL TOGETHER</span>
+            <span>SET SAIL TOGETHER</span>
+            <span>SET SAIL TOGETHER</span>
           </div>
         </div>
 
         <div className="footer-cta recruit">
           <div className="footer-cta-left" data-reveal>
             <h2>
-              一緒に地域を盛り上げる
+              瀬戸内の会社を、
               <br />
-              仲間へ。
+              一緒に整備する仲間へ。
             </h2>
           </div>
           <div className="footer-cta-right" data-reveal style={{ "--reveal-delay": "140ms" } as React.CSSProperties}>
             <p>
-              制作・写真・動画・文章・AI・地域活動。得意なことを持ち寄って、助け合えるつながりを広げています。
-              想いに共感してくれる仲間を募集しています。
+              制作・写真・動画・文章・AI・地域活動。整備士のように丁寧に、伴走者として誠実に。
+              瀬戸内の経営者の航海を支えるチームを広げています。
             </p>
             <div className="btn-line">
               <ArrowLink href="#contact" label="READ MORE" />
@@ -133,8 +134,8 @@ export function SiteFooter() {
           </div>
           <div className="footer-cta-right" data-reveal style={{ "--reveal-delay": "140ms" } as React.CSSProperties}>
             <p>
-              ホームページを作りたい、AIを仕事に取り入れたい、まだ言葉になっていない相談でも大丈夫です。
-              尾道・福山を中心に、オンラインで全国のご相談にも対応します。お気軽にどうぞ。
+              「何から始めればいいか分からない」という相談から始められます。
+              Webドック診断は無料で承ります。航海の前に、まず現在地を確認しませんか。
             </p>
             <div className="btn-line">
               <ArrowLink href="mailto:info@ny33.jp" label="CONTACT US" />
@@ -143,7 +144,7 @@ export function SiteFooter() {
         </div>
       </div>
 
-      {/* with CONNECTION ループバナー */}
+      {/* with DOCK ループバナー */}
       <div className="footer-loop">
         <div className="footer-loop-track">
           {Array.from({ length: 6 }).map((_, index) => (
@@ -151,7 +152,7 @@ export function SiteFooter() {
               <p>
                 with <strong>NY33</strong>
                 <br />
-                with CONNECTION
+                with DOCK
               </p>
               <span className="footer-loop-banner" />
               <span className="footer-loop-banner alt" />
@@ -179,7 +180,7 @@ export function SiteFooter() {
               <br />
               代表社員 二宮佑介
               <br />
-              対応エリア 尾道・福山・備後／オンライン全国
+              対応エリア 尾道・因島・福山・瀬戸内／オンライン全国
             </address>
           </div>
         </div>
@@ -264,13 +265,13 @@ export function SiteFooter() {
       {/* フッター下部 */}
       <div className="footer-btm">
         <div className="inner-wide">
-          <p className="footer-catch">人と人のつながりで、地域の未来をつくる。</p>
+          <p className="footer-catch">瀬戸内の会社をWebで支える、経営のドック。</p>
           <ul className="footer-btm-banner">
             <li>
-              <span className="footer-banner-tile">NY33 PROJECT</span>
+              <span className="footer-banner-tile">WEB DOCK</span>
             </li>
             <li>
-              <span className="footer-banner-tile alt">ONOMICHI WEB</span>
+              <span className="footer-banner-tile alt">SETOUCHI</span>
             </li>
           </ul>
           <ul className="footer-btm-sns">

@@ -24,7 +24,7 @@ export function SiteHeader() {
   return (
     <header className={`site-header ${isScrolled ? "is-scrolled" : ""} ${isOpen ? "is-open" : ""}`}>
       <div className="header-lead">
-        <span className="header-copy">尾道・福山のWeb制作なら</span>
+        <span className="header-copy">瀬戸内のWeb & AI ドック</span>
         <a className="brand" href="#top" aria-label="合同会社NY33 ホーム">
           <span className="brand-mono" aria-hidden="true">
             NY<span className="brand-mono-num">33</span>

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const siteUrl = "https://ny33.jp";
-const title = "合同会社NY33 | 尾道・福山のウェブ制作とAI活用支援";
+const title = "合同会社NY33 | 瀬戸内の会社を支えるWebとAIのドック";
 const description =
-  "合同会社NY33は、広島県尾道市を拠点に、ホームページ制作・AI活用支援・地域企業の課題解決を行うウェブ制作会社です。人と人のつながりで尾道・福山の未来をつくります。";
+  "合同会社NY33は、広島県尾道市を拠点に、瀬戸内の会社の航海をWebとAIで整備する『経営のドック』です。Webドック診断・修繕・定期整備・AI活用まで、経営者の隣で支え続けます。";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -17,12 +17,17 @@ export const metadata: Metadata = {
     "合同会社NY33",
     "NY33",
     "二宮佑介",
+    "Webドック",
+    "Webドック診断",
+    "瀬戸内 Web制作",
     "尾道 ホームページ制作",
     "尾道 ウェブ制作",
     "福山 ホームページ制作",
+    "因島 Web制作",
     "広島 ウェブ制作",
     "AI活用支援",
-    "地域企業 Web支援"
+    "瀬戸内 AI活用",
+    "地方経営 伴走"
   ],
   authors: [{ name: "合同会社NY33" }],
   creator: "合同会社NY33",
@@ -42,7 +47,7 @@ export const metadata: Metadata = {
         url: "/og.svg",
         width: 1200,
         height: 630,
-        alt: "合同会社NY33 | 人と人のつながりで、地域の未来をつくる。"
+        alt: "合同会社NY33 | 会社の航海に、Webのドックを。"
       }
     ]
   },

@@ -10,33 +10,33 @@ const heroImage =
 const heroVideo = "/hero.mp4";
 
 const portfolioItems = [
-  ["Company Website", "想いが伝わる会社サイト", "ホームページ"],
-  ["Recruit Page", "人柄で選ばれる採用導線", "採用サイト"],
-  ["Local Store", "地域店舗の集客ページ", "店舗サイト"],
-  ["AI Support", "AI活用の相談窓口設計", "業務改善"],
-  ["Brand Story", "代表の理念を言葉にする設計", "ブランディング"],
-  ["SEO Base", "尾道・福山で見つかる土台", "SEO"]
+  ["Company Renewal", "信頼が伝わるコーポレート整備", "サイト改修"],
+  ["Booking Flow", "予約・問い合わせまでの導線整備", "予約導線"],
+  ["Local Store", "地域で見つけてもらう店舗ページ", "店舗サイト"],
+  ["AI Workflow", "現場で効くAIの導入設計", "AI活用"],
+  ["Brand Voice", "想いを言葉に整える整備", "ブランディング"],
+  ["SEO Dock", "検索とAIに見つけられる土台", "SEO / AIO"]
 ];
 
 const serviceItems = [
-  ["HOME PAGE", "コーポレートサイト・採用サイト・LPなどのホームページ制作"],
-  ["AI SUPPORT", "現場で使えるAI活用支援・業務改善の相談"],
-  ["SEO / AIO", "尾道・福山エリアで見つけてもらう検索導線の設計"],
-  ["WEB GROWTH", "公開後の更新・分析・改善・発信サポート"],
-  ["LOCAL BRIDGE", "地域の人・企業・専門家をつなぐ橋渡し"],
-  ["CONSULTING", "事業の課題整理から制作方針までの伴走"]
+  ["WEB DOCK", "会社のWeb・AIの現在地を点検する、入口の「Webドック診断」"],
+  ["REPAIR", "サイト・LP・問い合わせ導線などを安全に直す改修"],
+  ["AI ASSIST", "現場と経営に効くAIの導入・運用支援"],
+  ["NAVIGATION", "検索・SNS・口コミ・予約までの集客導線を整える"],
+  ["MAINTENANCE", "公開後のアクセス・改善・運用を続ける定期整備"],
+  ["PARTNERSHIP", "整備士として、経営者の隣で航海を支え続ける伴走"]
 ];
 
 const newsItems = [
-  ["2026.05.21", "地域企業がホームページで伝えるべき「らしさ」"],
-  ["2026.05.21", "AIを地方の仕事にどう活かすか"],
-  ["2026.05.21", "尾道・福山を盛り上げるためにNY33ができること"]
+  ["2026.05.21", "「Webドック診断」の受付をはじめます"],
+  ["2026.05.21", "瀬戸内の経営者へ。AIをどう仕事に取り入れるか"],
+  ["2026.05.21", "ホームページ制作から『経営のドック』へ ― NY33の新しい届け方"]
 ];
 
 const blogItems = [
-  ["2026.05.21", "ウェブ制作を入口に、人と企業をつなぐということ"],
-  ["2026.05.21", "野球で学んだチームづくりを会社経営に活かす"],
-  ["2026.05.21", "地方だからこそ必要な、相談できるウェブ担当"]
+  ["2026.05.21", "船と経営に共通する、「安全に前へ進む」ということ"],
+  ["2026.05.21", "Webの現在地は、年に一度のドック点検で見えてくる"],
+  ["2026.05.21", "造船の現場で学んだ、整備という仕事の重み"]
 ];
 
 const jsonLd = {
@@ -48,8 +48,8 @@ const jsonLd = {
       name: "合同会社NY33",
       url: "https://ny33.jp/",
       founder: { "@type": "Person", name: "二宮佑介" },
-      areaServed: ["広島県尾道市", "広島県福山市", "備後エリア"],
-      slogan: "人と人のつながりで、地域の未来をつくる。"
+      areaServed: ["広島県尾道市", "広島県福山市", "広島県因島", "備後エリア", "瀬戸内"],
+      slogan: "会社の航海に、Webのドックを。"
     },
     {
       "@type": "LocalBusiness",
@@ -63,7 +63,7 @@ const jsonLd = {
         addressCountry: "JP"
       },
       description:
-        "広島県尾道市を拠点に、ホームページ制作・AI活用支援・地域企業の課題解決を行うウェブ制作会社です。",
+        "広島県尾道市を拠点に、瀬戸内の会社の航海をWebとAIで整備する『経営のドック』。診断・改修・運用・AI活用まで、経営者の隣で支え続けます。",
       founder: "二宮佑介"
     },
     {
@@ -110,10 +110,10 @@ export default function Home() {
       <main id="top" className="top">
         <section className="fv">
           <div className="fv-copy inner-wide">
-            <p>広島県尾道市から、地域企業の課題解決へ。</p>
+            <p>会社の航海に、Webのドックを。</p>
             <h1>
-              <span className="sr-only">合同会社NY33 | 尾道・福山のウェブ制作とAI活用支援</span>
-              <span aria-hidden="true">with CONNECTION</span>
+              <span className="sr-only">合同会社NY33 | 瀬戸内の会社を支えるWebとAIのドック</span>
+              <span aria-hidden="true">with DOCK</span>
             </h1>
           </div>
 
@@ -123,7 +123,7 @@ export default function Home() {
                 <span className="fv-news-thumb">NY33</span>
                 <span className="fv-news-body">
                   <time>2026.05.21</time>
-                  <strong>尾道・福山のウェブ制作とAI活用支援をはじめます</strong>
+                  <strong>「Webドック診断」の受付をはじめます</strong>
                 </span>
               </a>
             </article>
@@ -139,17 +139,19 @@ export default function Home() {
           <div className="inner">
             <div className="about-inner">
               <h2 data-reveal>
-                ウェブ制作は、
+                Webは、
                 <br />
-                つながりを生むための手段。
+                会社の航海を支える整備。
               </h2>
               <p className="about-text" data-reveal style={{ "--reveal-delay": "160ms" } as React.CSSProperties}>
-                合同会社NY33は、ホームページ制作を入口として、地域の人・企業・社会をつなぐ会社です。
-                地方だからこそ、人の協力が力になる。尾道・福山で挑戦する人の想いを整理し、伝わる形にし、必要な出会いまで橋渡しします。
+                船が安全に海を進むためには、定期的な点検と整備を行う「ドック」が欠かせません。
+                会社も同じです。ホームページ、検索、予約、SNS、顧客データ、AI活用 ―
+                経営とインターネットが切り離せない今、何を直すべきか、どこから始めるべきかが見えないまま航海を続けている経営者は少なくありません。
                 <br />
                 <br />
-                16年間の野球で学んだのは、良い仲間と良いライバルが互いを成長させるということ。
-                一人の利益より、みんなで何を残せるのか。NY33はその問いを持って、地域の未来に向き合います。
+                NY33は、ただホームページを作るだけの会社ではありません。
+                瀬戸内の造船文化を受け継ぎ、会社の現在地を診断し、必要な整備を行い、
+                経営者が自信を持って次の航海へ漕ぎ出せる状態をつくる、Webとは整備の仕事だと考えています。
               </p>
             </div>
           </div>
@@ -187,11 +189,11 @@ export default function Home() {
               <br />
               <span>SERVICE</span>
             </h2>
-            <p className="sub">私たちができること</p>
+            <p className="sub">瀬戸内の会社を整備するメニュー</p>
             <p className="text">
-              ウェブとAIの可能性は無限大。
+              つくって終わりではなく、診断・修繕・定期整備まで。
               <br />
-              地域の課題を、つながりで解決する。
+              会社の航海をWebとAIで支え続けます。
             </p>
             <a className="link-btn" href="#contact">
               <span>ALL SERVICE</span>
@@ -216,8 +218,9 @@ export default function Home() {
             <div className="company-content" data-reveal>
               <SectionCopy en="COMPANY" ja="会社情報" />
               <p>
-                合同会社NY33は、広島県尾道市を拠点に、尾道・福山・備後エリアの企業や地域活動をウェブとAIで支えます。
-                「ウェブのことならNY33の二宮に聞いたら解決する」と思ってもらえる存在を目指し、相談から制作、運用、必要なつながりづくりまで伴走します。
+                合同会社NY33は、広島県尾道市を拠点に、瀬戸内の会社の航海をWebとAIで整備する「経営のドック」です。
+                代表の二宮は造船の現場に身を置いた経験を持ち、船の世界で感じた「安全に進む責任と孤独」を、地方の経営者の隣で支えるためにこの会社を立ち上げました。
+                サイトを作って終わりではなく、診断・修繕・定期整備まで、会社が自信を持って次の航海へ漕ぎ出せるよう伴走します。
               </p>
               <dl className="company-table">
                 <div>

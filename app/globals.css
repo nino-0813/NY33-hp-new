@@ -1624,6 +1624,486 @@ button {
 }
 
 /* ============================================
+   Service Pages (詳細・一覧)
+   ============================================ */
+.service-page {
+  padding-top: 120px;
+  background: var(--bg);
+}
+
+.service-hero {
+  padding: clamp(40px, 6vw, 80px) 0 clamp(64px, 9vw, 120px);
+  border-bottom: 1px solid var(--line);
+}
+
+.service-hero-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 clamp(40px, 6vw, 72px);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.service-hero-breadcrumb a {
+  transition: color 220ms var(--ease);
+}
+
+.service-hero-breadcrumb a:hover {
+  color: var(--ink);
+}
+
+.service-hero-en {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(38px, 6.4vw, 88px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.service-hero-title {
+  margin: clamp(16px, 2vw, 24px) 0 0;
+  font-size: clamp(24px, 3.4vw, 42px);
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.service-hero-tagline {
+  max-width: 720px;
+  margin: clamp(28px, 4vw, 40px) 0 0;
+  color: var(--ink-2);
+  font-size: clamp(16px, 1.8vw, 22px);
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+.service-hero-lead {
+  max-width: 760px;
+  margin: clamp(24px, 3vw, 36px) 0 0;
+  color: var(--ink-2);
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 500;
+  line-height: 2;
+}
+
+.service-section-head {
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.service-section-head .en {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.service-section-head h2 {
+  margin: 14px 0 0;
+  font-size: clamp(24px, 3.4vw, 42px);
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.service-section-lead {
+  max-width: 760px;
+  margin: 20px 0 0;
+  color: var(--ink-2);
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.95;
+}
+
+/* こんな方へ */
+.service-for {
+  padding: clamp(72px, 10vw, 128px) 0;
+  background: var(--bg-soft);
+}
+
+.service-for-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px clamp(24px, 4vw, 48px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-for-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.service-for-check {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+/* 整備内容 */
+.service-what {
+  padding: clamp(72px, 10vw, 128px) 0;
+}
+
+.service-what-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(28px, 4vw, 48px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-what-list li {
+  padding: clamp(28px, 4vw, 40px);
+  background: var(--bg-soft);
+  border-radius: 4px;
+  transition: transform 420ms var(--ease), box-shadow 420ms var(--ease);
+}
+
+.service-what-list li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
+}
+
+.service-what-num {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.service-what-list h3 {
+  margin: 0 0 12px;
+  font-size: clamp(17px, 1.8vw, 22px);
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.service-what-list p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: clamp(13px, 1.3vw, 15px);
+  line-height: 1.85;
+}
+
+/* プロセス */
+.service-process {
+  padding: clamp(72px, 10vw, 128px) 0;
+  background: var(--bg-soft);
+}
+
+.service-process-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: process;
+}
+
+.service-process-list li {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+  padding: clamp(28px, 4vw, 44px) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.service-process-step {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.service-process-list h3 {
+  margin: 0 0 10px;
+  font-size: clamp(17px, 1.8vw, 22px);
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.service-process-list li p:not(.service-process-step) {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: clamp(13px, 1.3vw, 16px);
+  line-height: 1.85;
+}
+
+/* 期間・費用 */
+.service-info {
+  padding: clamp(64px, 9vw, 112px) 0;
+}
+
+.service-info-table {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  margin: 0;
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.service-info-table > div {
+  padding: clamp(24px, 3vw, 36px);
+  border-right: 1px solid var(--line);
+}
+
+.service-info-table > div:last-child {
+  border-right: 0;
+}
+
+.service-info-table dt {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.service-info-table dd {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(14px, 1.5vw, 17px);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.service-info-note {
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* CTA */
+.service-cta {
+  padding: clamp(80px, 12vw, 140px) 0;
+  background: var(--ink);
+  color: var(--bg);
+  text-align: center;
+}
+
+.service-cta h2 {
+  margin: 0;
+  font-size: clamp(24px, 3.6vw, 44px);
+  font-weight: 900;
+  line-height: 1.45;
+}
+
+.service-cta p {
+  max-width: 560px;
+  margin: 24px auto 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.85;
+}
+
+.service-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px clamp(28px, 4vw, 56px);
+  margin-top: clamp(36px, 5vw, 56px);
+}
+
+.service-cta .link-btn {
+  border-color: var(--bg);
+  color: var(--bg);
+}
+
+.service-cta .link-btn::before {
+  background: var(--bg);
+}
+
+.service-cta .link-btn:hover {
+  color: var(--ink);
+}
+
+.service-cta .link-btn-arrow {
+  color: var(--bg);
+}
+
+.service-cta .link-btn-arrow .text.mask {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* 次のサービス */
+.service-next {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line);
+}
+
+.service-next-link {
+  display: block;
+  transition: background 420ms var(--ease);
+}
+
+.service-next-link:hover {
+  background: #ecebe6;
+}
+
+.service-next .inner {
+  position: relative;
+  padding: clamp(56px, 7vw, 92px) 0;
+}
+
+.service-next-label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.service-next-en {
+  margin: 12px 0 4px;
+  font-size: clamp(28px, 5vw, 64px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.service-next h2 {
+  margin: 8px 0 6px;
+  font-size: clamp(17px, 2vw, 22px);
+  font-weight: 800;
+}
+
+.service-next-tag {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: clamp(13px, 1.3vw, 15px);
+}
+
+.service-next-arrow {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font-size: 18px;
+  transition: color 360ms var(--ease), background 360ms var(--ease), transform 360ms var(--ease);
+}
+
+.service-next-link:hover .service-next-arrow {
+  color: var(--bg);
+  background: var(--ink);
+  transform: translateY(-50%) translateX(6px);
+}
+
+/* 一覧ページのカードリスト */
+.service-index {
+  padding: clamp(72px, 10vw, 128px) 0 clamp(96px, 12vw, 160px);
+}
+
+.service-index-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 2.4vw, 32px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-index-card {
+  position: relative;
+  display: block;
+  padding: clamp(28px, 3.5vw, 44px);
+  background: var(--bg-soft);
+  border-radius: 4px;
+  min-height: 240px;
+  transition: transform 460ms var(--ease), box-shadow 460ms var(--ease), background 460ms var(--ease);
+}
+
+.service-index-card:hover {
+  transform: translateY(-4px);
+  background: var(--bg);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.1);
+}
+
+.service-index-num {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.service-index-en {
+  margin: 0;
+  font-size: clamp(26px, 3.4vw, 40px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.service-index-card h2 {
+  margin: 14px 0 8px;
+  font-size: clamp(15px, 1.6vw, 19px);
+  font-weight: 800;
+}
+
+.service-index-tag {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: clamp(13px, 1.3vw, 15px);
+  line-height: 1.7;
+}
+
+.service-index-arrow {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 15px;
+  color: var(--ink);
+  transition: color 360ms var(--ease), background 360ms var(--ease), transform 360ms var(--ease), border-color 360ms var(--ease);
+}
+
+.service-index-card:hover .service-index-arrow {
+  color: var(--bg);
+  background: var(--ink);
+  border-color: var(--ink);
+  transform: translateX(6px);
+}
+
+/* ============================================
    Responsive
    ============================================ */
 @media (max-width: 940px) {
@@ -1725,6 +2205,38 @@ button {
 
   .service-list h3 {
     grid-column: 1 / -1;
+  }
+
+  /* service detail / index pages */
+  .service-for-list,
+  .service-what-list,
+  .service-index-list,
+  .service-info-table {
+    grid-template-columns: 1fr;
+  }
+
+  .service-info-table > div {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .service-info-table > div:last-child {
+    border-bottom: 0;
+  }
+
+  .service-process-list li {
+    grid-template-columns: 80px 1fr;
+    gap: 20px;
+  }
+
+  .service-next-arrow {
+    position: static;
+    transform: none;
+    margin-top: 24px;
+  }
+
+  .service-next-link:hover .service-next-arrow {
+    transform: translateX(6px);
   }
 }
 

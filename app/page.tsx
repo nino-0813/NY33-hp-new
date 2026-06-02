@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { SiteHeader } from "./components/SiteHeader";
 import { SiteFooter } from "./components/SiteFooter";
 import { ScrollReveal } from "./components/ScrollReveal";
@@ -18,13 +19,13 @@ const portfolioItems = [
   ["SEO Dock", "検索とAIに見つけられる土台", "SEO / AIO"]
 ];
 
-const serviceItems = [
-  ["WEB DOCK", "会社のWeb・AIの現在地を点検する、入口の「Webドック診断」"],
-  ["REPAIR", "サイト・LP・問い合わせ導線などを安全に直す改修"],
-  ["AI ASSIST", "現場と経営に効くAIの導入・運用支援"],
-  ["NAVIGATION", "検索・SNS・口コミ・予約までの集客導線を整える"],
-  ["MAINTENANCE", "公開後のアクセス・改善・運用を続ける定期整備"],
-  ["PARTNERSHIP", "整備士として、経営者の隣で航海を支え続ける伴走"]
+const serviceItems: { slug: string; title: string; description: string }[] = [
+  { slug: "web-dock", title: "WEB DOCK", description: "会社のWeb・AIの現在地を点検する、入口の「Webドック診断」" },
+  { slug: "repair", title: "REPAIR", description: "サイト・LP・問い合わせ導線などを安全に直す改修" },
+  { slug: "ai-assist", title: "AI ASSIST", description: "現場と経営に効くAIの導入・運用支援" },
+  { slug: "navigation", title: "NAVIGATION", description: "検索・SNS・口コミ・予約までの集客導線を整える" },
+  { slug: "maintenance", title: "MAINTENANCE", description: "公開後のアクセス・改善・運用を続ける定期整備" },
+  { slug: "partnership", title: "PARTNERSHIP", description: "整備士として、経営者の隣で航海を支え続ける伴走" }
 ];
 
 const newsItems = [
@@ -195,19 +196,19 @@ export default function Home() {
               <br />
               会社の航海をWebとAIで支え続けます。
             </p>
-            <a className="link-btn" href="#contact">
+            <Link className="link-btn" href="/service">
               <span>ALL SERVICE</span>
-            </a>
+            </Link>
           </div>
           <ul className="service-list">
-            {serviceItems.map(([title, text], index) => (
-              <li key={title} data-reveal style={{ "--reveal-delay": `${index * 70}ms` } as React.CSSProperties}>
-                <a href="#contact">
+            {serviceItems.map((item, index) => (
+              <li key={item.slug} data-reveal style={{ "--reveal-delay": `${index * 70}ms` } as React.CSSProperties}>
+                <Link href={`/service/${item.slug}`}>
                   <div className="inner">
-                    <h3>{title}</h3>
-                    <p>{text}</p>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
                   </div>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

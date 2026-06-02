@@ -624,8 +624,28 @@ button {
    ============================================ */
 .top-portfolio {
   overflow: hidden;
-  padding: clamp(96px, 12vw, 168px) 0;
-  background: var(--bg-soft);
+  padding: clamp(96px, 13vw, 168px) 0;
+  background-color: var(--bg-soft);
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(246, 245, 242, 0.96) 0%,
+      rgba(246, 245, 242, 0.7) 24%,
+      rgba(246, 245, 242, 0.66) 76%,
+      rgba(246, 245, 242, 0.96) 100%
+    ),
+    url("/seto-chart-03.jpg");
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  background-position: center, center;
+  background-attachment: fixed, fixed;
+}
+
+@media (max-width: 768px) {
+  .top-portfolio {
+    background-attachment: scroll, scroll;
+    background-position: center, 40% center;
+  }
 }
 
 .portfolio-track {
@@ -874,8 +894,29 @@ button {
    ============================================ */
 .top-service {
   padding: clamp(96px, 13vw, 170px) 0 clamp(40px, 6vw, 80px);
-  background: var(--bg);
-  border-top: 1px solid var(--line);
+  /* 紺色のブループリント海図を背景に、ドラマチックなドック・セクションへ */
+  background-color: #0e1d33;
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(11, 22, 40, 0.78) 0%,
+      rgba(11, 22, 40, 0.55) 50%,
+      rgba(11, 22, 40, 0.85) 100%
+    ),
+    url("/seto-chart-04.jpg");
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  background-position: center, center;
+  background-attachment: fixed, fixed;
+  color: var(--bg);
+  border-top: 0;
+}
+
+@media (max-width: 768px) {
+  .top-service {
+    background-attachment: scroll, scroll;
+    background-position: center, 75% center;
+  }
 }
 
 .service-copy {
@@ -892,7 +933,7 @@ button {
 
 .service-copy .sub {
   margin: 20px 0 0;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.64);
   font-size: clamp(13px, 1.4vw, 16px);
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -900,7 +941,7 @@ button {
 
 .service-copy .text {
   margin: 24px 0 28px;
-  color: var(--ink-2);
+  color: rgba(255, 255, 255, 0.82);
   font-size: clamp(15px, 1.6vw, 19px);
   font-weight: 600;
   line-height: 1.75;
@@ -910,11 +951,11 @@ button {
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .service-list li {
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .service-list a {
@@ -924,7 +965,7 @@ button {
 
 .service-list a:hover,
 .service-list a:focus-visible {
-  background: var(--bg-soft);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .service-list .inner {
@@ -947,11 +988,12 @@ button {
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.01em;
+  color: var(--bg);
 }
 
 .service-list p {
   margin: 0;
-  color: var(--ink-2);
+  color: rgba(255, 255, 255, 0.7);
   font-size: clamp(13px, 1.4vw, 16px);
   font-weight: 600;
 }
@@ -959,13 +1001,28 @@ button {
 .service-list .inner::after {
   content: "→";
   font-size: 20px;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.45);
   transition: transform 420ms var(--ease), color 420ms var(--ease);
 }
 
 .service-list a:hover .inner::after {
-  color: var(--ink);
+  color: var(--bg);
   transform: translateX(6px);
+}
+
+/* Service内のlink-btn（ALL SERVICE）を白枠仕様に */
+.top-service .link-btn {
+  border-color: var(--bg);
+  color: var(--bg);
+}
+
+.top-service .link-btn::before {
+  background: var(--bg);
+}
+
+.top-service .link-btn:hover,
+.top-service .link-btn:focus-visible {
+  color: var(--ink);
 }
 
 /* ============================================
@@ -1106,7 +1163,24 @@ button {
 .footer-image {
   position: relative;
   min-height: clamp(260px, 40vw, 480px);
-  background: linear-gradient(135deg, #26241f, #100f0c);
+  background-color: #14110f;
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(20, 17, 15, 0.55) 0%,
+      rgba(20, 17, 15, 0.75) 100%
+    ),
+    url("/seto-chart-05.jpg");
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  background-position: center, center;
+  background-attachment: fixed, fixed;
+}
+
+@media (max-width: 768px) {
+  .footer-image {
+    background-attachment: scroll, scroll;
+  }
 }
 
 .loop-text {

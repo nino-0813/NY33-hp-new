@@ -566,9 +566,35 @@ button {
 
 /* ============================================
    About
+   海図の固定背景の上を、コンテンツがゆっくり流れていく演出。
+   multiple-background で「白オーバーレイ」と「海図」を直接重ねる。
    ============================================ */
 .top-about {
-  padding: clamp(110px, 14vw, 200px) 0;
+  position: relative;
+  padding: clamp(140px, 17vw, 240px) 0;
+  background-color: var(--bg-soft);
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(255, 255, 255, 0.45) 22%,
+      rgba(255, 255, 255, 0.4) 78%,
+      rgba(255, 255, 255, 0.96) 100%
+    ),
+    url("/seto-chart.jpg");
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  background-position: center, center;
+  background-attachment: fixed, fixed;
+  overflow: hidden;
+}
+
+/* iOS Safari は fixed-attachment を無視するため、scroll に切替 */
+@media (max-width: 768px) {
+  .top-about {
+    background-attachment: scroll, scroll;
+    background-position: center, 62% center;
+  }
 }
 
 .about-inner {

@@ -3,13 +3,16 @@ import Link from "next/link";
 import { SiteHeader } from "./components/SiteHeader";
 import { SiteFooter } from "./components/SiteFooter";
 import { ScrollReveal } from "./components/ScrollReveal";
+import { HeroVideo } from "./components/HeroVideo";
 import { formatPostDate, getPostsByCategory } from "./posts/posts";
 
 const heroImage =
   "https://commons.wikimedia.org/wiki/Special:FilePath/%E5%B0%BE%E9%81%93%E6%B8%AF%20OnomIchi%20Port%20-%20panoramio.jpg";
 
-// 背景動画を使う場合はここにURLを設定（空ならheroImageの固定背景にフォールバック）
-const heroVideo = "/hero.mp4";
+// 背景動画（空ならheroImageの固定背景にフォールバック）
+// デスクトップ用とスマホ用を別ファイルで持ち、画面幅で出し分ける。
+const heroVideoDesktop = "/hero.mp4";
+const heroVideoMobile = "/hero-sp.mp4";
 
 const portfolioItems = [
   ["Company Renewal", "信頼が伝わるコーポレート整備", "サイト改修"],
@@ -87,15 +90,11 @@ export default function Home() {
       <SiteHeader />
 
       <div className="fixed-visual" aria-hidden="true">
-        {heroVideo ? (
-          <video
-            className="fixed-visual-video"
-            src={heroVideo}
+        {heroVideoDesktop ? (
+          <HeroVideo
+            desktop={heroVideoDesktop}
+            mobile={heroVideoMobile || heroVideoDesktop}
             poster={heroImage}
-            autoPlay
-            loop
-            muted
-            playsInline
           />
         ) : (
           <Image src={heroImage} alt="" fill priority sizes="100vw" className="fixed-visual-image" />

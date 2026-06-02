@@ -34,7 +34,7 @@ export function SiteHeader() {
       </div>
 
       <div className="header-sp-items">
-        <a className="header-contact-fixed" href="#contact">
+        <a className="header-contact-fixed" href="/contact">
           <span>お問い合わせ</span>
         </a>
         <button
@@ -50,7 +50,7 @@ export function SiteHeader() {
       </div>
 
       <nav className={`site-nav ${isOpen ? "is-open" : ""}`} aria-label="主要ナビゲーション">
-        <a className="nav-contact" href="#contact" onClick={() => setIsOpen(false)}>
+        <a className="nav-contact" href="/contact" onClick={() => setIsOpen(false)}>
           <span className="sp-only">資料請求・</span>お問い合わせ
         </a>
         <ul className="nav-list">

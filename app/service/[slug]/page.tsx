@@ -181,9 +181,9 @@ export default async function ServiceDetailPage({
               data-reveal
               style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
             >
-              <a className="link-btn" href="mailto:info@ny33.jp">
+              <Link className="link-btn" href="/contact">
                 <span>CONTACT US</span>
-              </a>
+              </Link>
               <Link className="link-btn-arrow" href="/service">
                 <span className="text-wrap">
                   <span className="text">ALL SERVICE</span>

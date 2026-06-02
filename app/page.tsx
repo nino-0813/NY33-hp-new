@@ -171,9 +171,9 @@ export default function Home() {
             ))}
           </div>
           <div className="btn-line">
-            <a className="link-btn" href="#contact">
+            <Link className="link-btn" href="/contact">
               <span>VIEW ALL</span>
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -232,15 +232,15 @@ export default function Home() {
                 </div>
               </dl>
               <div className="btn-line">
-                <a className="link-btn-arrow" href="#contact">
+                <Link className="link-btn-arrow" href="/contact">
                   <span className="text-wrap">
-                    <span className="text">READ MORE</span>
-                    <span className="text mask">READ MORE</span>
+                    <span className="text">CONTACT US</span>
+                    <span className="text mask">CONTACT US</span>
                   </span>
                   <span className="circle" aria-hidden="true">
                     →
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

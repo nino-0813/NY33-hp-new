@@ -38,10 +38,10 @@ const footerMenu: { label: string; en: string; links: { label: string; href: str
     label: "その他",
     en: "ABOUT",
     links: [
-      { label: "お問い合わせ", href: "/#contact" },
+      { label: "お問い合わせ", href: "/contact" },
       { label: "ブログ", href: "/blog" },
       { label: "お知らせ", href: "/news" },
-      { label: "個人情報保護方針", href: "/#contact" }
+      { label: "個人情報保護方針", href: "/privacy" }
     ]
   }
 ];
@@ -112,7 +112,7 @@ export function SiteFooter() {
               瀬戸内の経営者の航海を支えるチームを広げています。
             </p>
             <div className="btn-line">
-              <ArrowLink href="#contact" label="READ MORE" />
+              <ArrowLink href="/contact" label="READ MORE" />
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@ export function SiteFooter() {
               Webドック診断は無料で承ります。航海の前に、まず現在地を確認しませんか。
             </p>
             <div className="btn-line">
-              <ArrowLink href="mailto:info@ny33.jp" label="CONTACT US" />
+              <ArrowLink href="/contact" label="CONTACT US" />
             </div>
           </div>
         </div>

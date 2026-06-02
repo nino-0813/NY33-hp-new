@@ -7,9 +7,9 @@ const footerMenu: { label: string; en: string; links: { label: string; href: str
     label: "会社情報",
     en: "COMPANY",
     links: [
-      { label: "私たちの想い", href: "#concept" },
-      { label: "会社概要", href: "#company" },
-      { label: "お知らせ", href: "#news" }
+      { label: "私たちの想い", href: "/#concept" },
+      { label: "会社概要", href: "/#company" },
+      { label: "お知らせ", href: "/news" }
     ]
   },
   {
@@ -38,9 +38,10 @@ const footerMenu: { label: string; en: string; links: { label: string; href: str
     label: "その他",
     en: "ABOUT",
     links: [
-      { label: "お問い合わせ", href: "#contact" },
-      { label: "ブログ", href: "#news" },
-      { label: "個人情報保護方針", href: "#contact" }
+      { label: "お問い合わせ", href: "/#contact" },
+      { label: "ブログ", href: "/blog" },
+      { label: "お知らせ", href: "/news" },
+      { label: "個人情報保護方針", href: "/#contact" }
     ]
   }
 ];

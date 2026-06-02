@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SiteHeader } from "./components/SiteHeader";
 import { SiteFooter } from "./components/SiteFooter";
 import { ScrollReveal } from "./components/ScrollReveal";
+import { formatPostDate, getPostsByCategory } from "./posts/posts";
 
 const heroImage =
   "https://commons.wikimedia.org/wiki/Special:FilePath/%E5%B0%BE%E9%81%93%E6%B8%AF%20OnomIchi%20Port%20-%20panoramio.jpg";
@@ -28,17 +29,7 @@ const serviceItems: { slug: string; title: string; description: string }[] = [
   { slug: "partnership", title: "PARTNERSHIP", description: "整備士として、経営者の隣で航海を支え続ける伴走" }
 ];
 
-const newsItems = [
-  ["2026.05.21", "「Webドック診断」の受付をはじめます"],
-  ["2026.05.21", "瀬戸内の経営者へ。AIをどう仕事に取り入れるか"],
-  ["2026.05.21", "ホームページ制作から『経営のドック』へ ― NY33の新しい届け方"]
-];
-
-const blogItems = [
-  ["2026.05.21", "船と経営に共通する、「安全に前へ進む」ということ"],
-  ["2026.05.21", "Webの現在地は、年に一度のドック点検で見えてくる"],
-  ["2026.05.21", "造船の現場で学んだ、整備という仕事の重み"]
-];
+// News と Blog は app/posts/posts.ts から取得
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -88,6 +79,9 @@ function SectionCopy({ en, ja }: { en: string; ja: string }) {
 }
 
 export default function Home() {
+  const newsItems = getPostsByCategory("news").slice(0, 3);
+  const blogItems = getPostsByCategory("blog").slice(0, 3);
+
   return (
     <>
       <SiteHeader />
@@ -258,40 +252,65 @@ export default function Home() {
               <div>
                 <SectionCopy en="NEWS" ja="お知らせ" />
                 <ul className="post-list">
-                  {newsItems.map(([date, title], index) => (
-                    <li key={title} data-reveal style={{ "--reveal-delay": `${index * 80}ms` } as React.CSSProperties}>
-                      <a href="#contact">
+                  {newsItems.map((post, index) => (
+                    <li
+                      key={post.slug}
+                      data-reveal
+                      style={{ "--reveal-delay": `${index * 80}ms` } as React.CSSProperties}
+                    >
+                      <Link href={`/news/${post.slug}`}>
                         <span className="post-thumb" />
                         <span>
-                          <time>{date}</time>
-                          <strong>{title}</strong>
+                          <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+                          <strong>{post.title}</strong>
                         </span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
+                <div className="btn-line btn-line--small">
+                  <Link className="link-btn-arrow" href="/news">
+                    <span className="text-wrap">
+                      <span className="text">VIEW ALL NEWS</span>
+                      <span className="text mask">VIEW ALL NEWS</span>
+                    </span>
+                    <span className="circle" aria-hidden="true">
+                      →
+                    </span>
+                  </Link>
+                </div>
               </div>
               <div>
                 <SectionCopy en="BLOG" ja="ブログ" />
                 <ul className="post-list">
-                  {blogItems.map(([date, title], index) => (
-                    <li key={title} data-reveal style={{ "--reveal-delay": `${index * 80}ms` } as React.CSSProperties}>
-                      <a href="#contact">
+                  {blogItems.map((post, index) => (
+                    <li
+                      key={post.slug}
+                      data-reveal
+                      style={{ "--reveal-delay": `${index * 80}ms` } as React.CSSProperties}
+                    >
+                      <Link href={`/blog/${post.slug}`}>
                         <span className="post-thumb" />
                         <span>
-                          <time>{date}</time>
-                          <strong>{title}</strong>
+                          <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+                          <strong>{post.title}</strong>
                         </span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
+                <div className="btn-line btn-line--small">
+                  <Link className="link-btn-arrow" href="/blog">
+                    <span className="text-wrap">
+                      <span className="text">VIEW ALL BLOG</span>
+                      <span className="text mask">VIEW ALL BLOG</span>
+                    </span>
+                    <span className="circle" aria-hidden="true">
+                      →
+                    </span>
+                  </Link>
+                </div>
               </div>
-            </div>
-            <div className="btn-line">
-              <a className="btn-wide" href="#news">
-                一覧を見る
-              </a>
             </div>
           </div>
         </section>

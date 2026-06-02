@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 const footerMenu: { label: string; en: string; links: { label: string; href: string }[] }[] = [
@@ -25,13 +26,11 @@ const footerMenu: { label: string; en: string; links: { label: string; href: str
     ]
   },
   {
-    label: "制作事例",
-    en: "PORTFOLIO",
+    label: "制作実績",
+    en: "WORKS",
     links: [
-      { label: "コーポレート整備", href: "#portfolio" },
-      { label: "予約・問い合わせ導線", href: "#portfolio" },
-      { label: "店舗・地域サイト", href: "#portfolio" },
-      { label: "ブランド整備", href: "#portfolio" }
+      { label: "制作実績 一覧", href: "/works" },
+      { label: "イケベジさま", href: "/works/ikebeji" }
     ]
   },
   {
@@ -57,7 +56,7 @@ const featuredCase = {
   description:
     "地域の食を支える事業者の「らしさ」を整理し、伝わる形のWebへ整備しました。",
   scope: ["コーポレートサイト制作", "ブランド整備", "集客導線設計"],
-  href: "#contact" // 公開サイトURLがあれば差し替え
+  href: "/works/ikebeji"
 };
 
 const snsLinks = [
@@ -217,7 +216,7 @@ export function SiteFooter() {
             <h2 className="ja">制作実績</h2>
           </div>
 
-          <a
+          <Link
             href={featuredCase.href}
             className="footer-case-card"
             data-reveal
@@ -241,7 +240,7 @@ export function SiteFooter() {
             <span className="footer-case-arrow" aria-hidden="true">
               →
             </span>
-          </a>
+          </Link>
         </div>
       </section>
 

@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 const navItems = [
-  { href: "/#concept", label: "私たちの想い", en: "CONCEPT" },
   { href: "/service", label: "サービス", en: "SERVICE" },
+  { href: "/works", label: "制作実績", en: "WORKS" },
   { href: "/#company", label: "会社情報", en: "COMPANY" },
   { href: "/news", label: "お知らせ", en: "NEWS" },
   { href: "/blog", label: "ブログ", en: "BLOG" }

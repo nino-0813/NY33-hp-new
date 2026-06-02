@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { services } from "./service/services";
 import { posts } from "./posts/posts";
+import { works } from "./works/works";
 
 const BASE = "https://ny33.jp";
 
@@ -11,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${BASE}/`, lastModified: now, changeFrequency: "monthly", priority: 1 },
     { url: `${BASE}/service`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/works`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/news`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.9 },
@@ -31,5 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6
   }));
 
-  return [...staticPages, ...servicePages, ...postPages];
+  const workPages: MetadataRoute.Sitemap = works.map((w) => ({
+    url: `${BASE}/works/${w.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7
+  }));
+
+  return [...staticPages, ...servicePages, ...postPages, ...workPages];
 }

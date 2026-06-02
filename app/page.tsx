@@ -170,8 +170,8 @@ export default function Home() {
             ))}
           </div>
           <div className="btn-line">
-            <Link className="link-btn" href="/contact">
-              <span>VIEW ALL</span>
+            <Link className="link-btn" href="/works">
+              <span>VIEW ALL WORKS</span>
             </Link>
           </div>
         </section>

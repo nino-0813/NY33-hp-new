@@ -1452,100 +1452,143 @@ button {
   color: var(--bg);
 }
 
-.footer-record {
+/* FEATURED CASE — 制作実績（一社をカッコよく見せる） */
+.footer-case {
+  padding: clamp(64px, 9vw, 110px) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.footer-record-head {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  width: 100%;
-  padding: clamp(32px, 5vw, 52px) 0;
-  color: var(--bg);
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  text-align: left;
+.footer-case-head {
+  margin-bottom: clamp(32px, 4vw, 56px);
 }
 
-.footer-record-head h2,
-.footer-qualification-head h2 {
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
+.footer-case-head .en {
   margin: 0;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
 }
 
-.footer-record-head .jp,
-.footer-qualification-head .jp {
-  font-size: clamp(19px, 2.4vw, 28px);
+.footer-case-head .ja {
+  margin: 14px 0 0;
+  font-size: clamp(20px, 2.4vw, 28px);
   font-weight: 900;
+  color: var(--bg);
 }
 
-.footer-record-head .en,
-.footer-qualification-head .en {
-  color: rgba(255, 255, 255, 0.45);
-  font-size: clamp(11px, 1.4vw, 15px);
-  font-weight: 700;
-  letter-spacing: 0.14em;
-}
-
-.footer-record-body {
-  padding-bottom: clamp(32px, 5vw, 52px);
-}
-
-.footer-record-list {
+.footer-case-card {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 8px 24px;
+  grid-template-columns: minmax(180px, 0.32fr) 1fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+  padding: clamp(36px, 5vw, 56px) clamp(32px, 4vw, 56px);
+  color: var(--bg);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: background 420ms var(--ease), border-color 420ms var(--ease), transform 420ms var(--ease);
+}
+
+.footer-case-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-3px);
+}
+
+.footer-case-num {
   margin: 0;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+}
+
+.footer-case-industry {
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  grid-column: 1;
+}
+
+.footer-case-client {
+  margin: 0;
+  font-size: clamp(34px, 5vw, 62px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.footer-case-honor {
+  margin-left: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.5em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.footer-case-tagline {
+  margin: 18px 0 0;
+  font-size: clamp(15px, 1.7vw, 19px);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  grid-column: 2;
+}
+
+.footer-case-desc {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(13px, 1.4vw, 15px);
+  line-height: 1.85;
+  grid-column: 2;
+}
+
+.footer-case-scope {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0 0;
   padding: 0;
   list-style: none;
+  grid-column: 2;
 }
 
-.footer-record-list li {
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 13px;
-  line-height: 1.7;
+.footer-case-scope li {
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
-.footer-record-note {
-  margin: 22px 0 0;
-  color: rgba(255, 255, 255, 0.42);
-  font-size: 12px;
-}
-
-.footer-qualification {
-  overflow: hidden;
-  padding: clamp(32px, 5vw, 52px) 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.footer-qualification-head {
-  margin-bottom: clamp(24px, 3vw, 36px);
-}
-
-.footer-qualification-track {
-  display: flex;
-  gap: 20px;
-  width: max-content;
-  animation: portfolio-loop 26s linear infinite;
-}
-
-.footer-qualification-item {
+.footer-case-arrow {
+  position: absolute;
+  top: clamp(28px, 4vw, 44px);
+  right: clamp(28px, 4vw, 44px);
   display: grid;
   place-items: center;
-  width: clamp(140px, 18vw, 200px);
-  aspect-ratio: 4 / 3;
-  flex: 0 0 auto;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  font-size: 16px;
+  transition: color 320ms var(--ease), background 320ms var(--ease), border-color 320ms var(--ease), transform 320ms var(--ease);
+}
+
+.footer-case-card:hover .footer-case-arrow {
+  color: var(--ink);
+  background: var(--bg);
+  border-color: var(--bg);
+  transform: translateX(5px);
 }
 
 .footer-btm {
@@ -2307,7 +2350,27 @@ button {
     gap: 4px;
   }
 
-  .footer-record-list {
+  .footer-case-card {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .footer-case-industry,
+  .footer-case-client,
+  .footer-case-tagline,
+  .footer-case-desc,
+  .footer-case-scope {
+    grid-column: 1;
+  }
+
+  .footer-case-arrow {
+    top: auto;
+    right: auto;
+    position: relative;
+    margin-top: 18px;
+  }
+
+  .footer-case-card:hover .footer-case-arrow {
+    transform: translateX(5px);
   }
 }

@@ -45,27 +45,19 @@ const footerMenu: { label: string; en: string; links: { label: string; href: str
   }
 ];
 
-// 取引実績（プレースホルダー）。本番では実際の取引先・カテゴリに差し替えてください。
-const businessRecords = [
-  "尾道・因島 造船関連事業者さま",
-  "瀬戸内 ものづくり・製造業さま",
-  "宿泊・観光事業者さま",
-  "飲食・店舗事業者さま",
-  "建設・工務店・不動産さま",
-  "代替わりを進める家業さま",
-  "医療・士業さま",
-  "教育・スクール事業者さま"
-];
-
-// 認証資格（プレースホルダー）。本番では取得済みのバナー画像に差し替えてください。
-const qualifications = [
-  "PREPARING",
-  "PREPARING",
-  "PREPARING",
-  "PREPARING",
-  "PREPARING",
-  "PREPARING"
-];
+// 制作実績（Featured Case）
+// 本番では実際のサイトURL・業種・整備内容に差し替えてください。
+const featuredCase = {
+  number: "01",
+  client: "イケベジ",
+  clientHonor: "さま",
+  industry: "瀬戸内 / 食・農産",
+  tagline: "想いを言葉に整える整備。",
+  description:
+    "地域の食を支える事業者の「らしさ」を整理し、伝わる形のWebへ整備しました。",
+  scope: ["コーポレートサイト制作", "ブランド整備", "集客導線設計"],
+  href: "#contact" // 公開サイトURLがあれば差し替え
+};
 
 const snsLinks = [
   { label: "LINE", href: "#contact" },
@@ -90,7 +82,6 @@ function ArrowLink({ href, label }: { href: string; label: string }) {
 
 export function SiteFooter() {
   const [openMenu, setOpenMenu] = useState<number | null>(null);
-  const [recordOpen, setRecordOpen] = useState(false);
 
   return (
     <footer className="site-footer" id="contact">
@@ -217,48 +208,39 @@ export function SiteFooter() {
         </ul>
       </div>
 
-      {/* 取引実績 BUSINESS RECORD（プレースホルダー） */}
-      <section className="footer-record">
+      {/* FEATURED CASE — 制作実績（一社） */}
+      <section className="footer-case">
         <div className="inner-wide">
-          <button
-            type="button"
-            className="footer-record-head"
-            aria-expanded={recordOpen}
-            onClick={() => setRecordOpen((current) => !current)}
+          <div className="footer-case-head" data-reveal>
+            <p className="en">FEATURED CASE</p>
+            <h2 className="ja">制作実績</h2>
+          </div>
+
+          <a
+            href={featuredCase.href}
+            className="footer-case-card"
+            data-reveal
+            style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
           >
-            <h2>
-              <span className="jp">取引実績</span>
-              <span className="en">BUSINESS RECORD</span>
-            </h2>
-            <span className="open-circle" aria-hidden="true" />
-          </button>
-          <div className="footer-record-body" hidden={!recordOpen}>
-            <ul className="footer-record-list">
-              {businessRecords.map((record, index) => (
-                <li key={index}>{record}</li>
+            <p className="footer-case-num" aria-hidden="true">
+              CASE {featuredCase.number}
+            </p>
+            <p className="footer-case-industry">{featuredCase.industry}</p>
+            <h3 className="footer-case-client">
+              {featuredCase.client}
+              <span className="footer-case-honor">{featuredCase.clientHonor}</span>
+            </h3>
+            <p className="footer-case-tagline">{featuredCase.tagline}</p>
+            <p className="footer-case-desc">{featuredCase.description}</p>
+            <ul className="footer-case-scope">
+              {featuredCase.scope.map((s) => (
+                <li key={s}>{s}</li>
               ))}
             </ul>
-            <p className="footer-record-note">（順不同・準備中。実績は順次掲載していきます）</p>
-          </div>
-        </div>
-      </section>
-
-      {/* 認証資格 QUALIFICATION（プレースホルダー） */}
-      <section className="footer-qualification">
-        <div className="inner-wide">
-          <div className="footer-qualification-head">
-            <h2>
-              <span className="jp">認証資格</span>
-              <span className="en">QUALIFICATION</span>
-            </h2>
-          </div>
-        </div>
-        <div className="footer-qualification-track" aria-hidden="true">
-          {[...qualifications, ...qualifications].map((item, index) => (
-            <span className="footer-qualification-item" key={index}>
-              {item}
+            <span className="footer-case-arrow" aria-hidden="true">
+              →
             </span>
-          ))}
+          </a>
         </div>
       </section>
 

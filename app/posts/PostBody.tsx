@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { PostSection } from "./posts";
 
@@ -32,6 +33,14 @@ export function PostBody({ sections }: { sections: PostSection[] }) {
                 ))}
               </ul>
             );
+          case "ol":
+            return (
+              <ol key={index} className="post-ol">
+                {section.items.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ol>
+            );
           case "note":
             return (
               <aside key={index} className="post-note">
@@ -40,6 +49,55 @@ export function PostBody({ sections }: { sections: PostSection[] }) {
                 </span>
                 <p>{section.text}</p>
               </aside>
+            );
+          case "quote":
+            return (
+              <blockquote key={index} className="post-quote">
+                <p>{section.text}</p>
+                {section.cite && <footer>— {section.cite}</footer>}
+              </blockquote>
+            );
+          case "image":
+            return (
+              <figure key={index} className="post-figure">
+                <Image
+                  src={section.src}
+                  alt={section.alt}
+                  width={1600}
+                  height={900}
+                  sizes="(max-width: 768px) 100vw, 760px"
+                  className="post-figure-img"
+                />
+                {section.caption && (
+                  <figcaption>{section.caption}</figcaption>
+                )}
+              </figure>
+            );
+          case "table":
+            return (
+              <figure key={index} className="post-table-wrap">
+                <table className="post-table">
+                  <thead>
+                    <tr>
+                      {section.headers.map((h, i) => (
+                        <th key={i}>{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {section.rows.map((row, ri) => (
+                      <tr key={ri}>
+                        {row.map((cell, ci) => (
+                          <td key={ci}>{cell}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                {section.caption && (
+                  <figcaption>{section.caption}</figcaption>
+                )}
+              </figure>
             );
           case "link":
             return (

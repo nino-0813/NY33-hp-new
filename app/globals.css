@@ -1921,6 +1921,15 @@ button {
   line-height: 1.6;
 }
 
+.service-info-sub {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
 .service-info-note {
   margin: 24px 0 0;
   color: var(--muted);

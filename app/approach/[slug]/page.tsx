@@ -191,21 +191,18 @@ export default async function ApproachDetail({
               <h2>費用・期間の目安</h2>
             </div>
             <dl className="service-info-table" data-reveal>
-              {a.pricing.initial && (
-                <div>
-                  <dt>初期費用</dt>
-                  <dd>{a.pricing.initial}</dd>
-                </div>
-              )}
-              {a.pricing.monthly && (
-                <div>
-                  <dt>月次費用</dt>
-                  <dd>{a.pricing.monthly}</dd>
-                </div>
-              )}
               <div>
                 <dt>期間目安</dt>
                 <dd>{a.pricing.durationNote}</dd>
+              </div>
+              <div>
+                <dt>費用</dt>
+                <dd>
+                  ご相談後にご提案します
+                  <span className="service-info-sub">
+                    ヒアリングのうえ、お見積もりをお渡しします
+                  </span>
+                </dd>
               </div>
             </dl>
             {a.pricing.note && (

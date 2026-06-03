@@ -87,10 +87,8 @@ export const approaches: Approach[] = [
       { step: "05", title: "公開・運用", description: "公開後の動作確認、運用引き継ぎ、必要に応じ月次伴走" }
     ],
     pricing: {
-      initial: "¥800,000〜（ページ数・要件により変動）",
-      monthly: "月次運用 ¥30,000〜（任意）",
       durationNote: "全体期間 2〜4ヶ月",
-      note: "まずは Webドック診断で現在地を整理してからのご提案も可能です。"
+      note: "費用は事業規模・要件によって変動します。まずは Webドック診断で現在地を整理してからのご提案も可能です。"
     },
     metrics: [
       "ブランディング統一による問い合わせ『質』の向上",
@@ -143,9 +141,8 @@ export const approaches: Approach[] = [
       { step: "05", title: "計測・微調整", description: "公開後の数字を見て、追加の微調整" }
     ],
     pricing: {
-      initial: "¥300,000〜（規模・要件により変動）",
       durationNote: "1〜2ヶ月で初期改善、数字改善は3〜6ヶ月で見えてきます",
-      note: "予約システムの月額料金（数千円〜）は別途発生します。"
+      note: "費用は対応範囲・規模によって変動します。予約システムの月額料金（数千円〜）は別途発生します。"
     },
     metrics: [
       "フォーム離脱率の改善（例: 60% → 30%）",
@@ -198,10 +195,8 @@ export const approaches: Approach[] = [
       { step: "05", title: "公開・MEO継続", description: "公開後はGoogleビジネスプロフィールの運用も継続支援" }
     ],
     pricing: {
-      initial: "¥400,000〜（撮影費別途）",
-      monthly: "MEO運用 ¥30,000〜",
       durationNote: "1〜2ヶ月で公開",
-      note: "撮影が不要な場合は初期費用を圧縮できます。"
+      note: "費用は撮影の有無や規模によって変動します。撮影が不要な場合は抑えたご提案も可能です。"
     },
     metrics: [
       "Googleマップでの表示回数・経路検索回数の増加",
@@ -253,10 +248,8 @@ export const approaches: Approach[] = [
       { step: "04", title: "定着支援", description: "ルール化・研修・継続的な改善まで伴走" }
     ],
     pricing: {
-      initial: "単発支援 ¥200,000〜",
-      monthly: "月次伴走 ¥150,000/月〜",
       durationNote: "試験運用まで約1ヶ月、定着まで2〜3ヶ月",
-      note: "ツール利用料（数千円〜）は別途発生します。"
+      note: "費用は対応範囲（単発／月次伴走）により変動します。ツール利用料（数千円〜）は別途発生します。"
     },
     metrics: [
       "メール対応・資料作成時間の削減（例: 月20時間）",
@@ -309,9 +302,8 @@ export const approaches: Approach[] = [
       { step: "05", title: "Web・SNS整備", description: "整えた言葉を、実際の発信媒体に反映" }
     ],
     pricing: {
-      initial: "¥500,000〜（規模・媒体数により変動）",
       durationNote: "2〜3ヶ月",
-      note: "コーポレートサイト改修と組み合わせるとお得になります。"
+      note: "費用は規模・対応媒体数により変動します。コーポレートサイト改修と組み合わせるとお得になります。"
     },
     metrics: [
       "経営者・スタッフが同じ言葉で会社を語れるようになる",
@@ -364,10 +356,8 @@ export const approaches: Approach[] = [
       { step: "05", title: "月次運用", description: "数字を見ながら継続的に改善" }
     ],
     pricing: {
-      initial: "¥400,000〜（規模により変動）",
-      monthly: "月次運用 ¥80,000/月〜",
       durationNote: "初期1〜2ヶ月、効果は6ヶ月〜が目安",
-      note: "SEOは継続が前提のため、最低6ヶ月の伴走をおすすめしています。"
+      note: "費用は規模・対応範囲により変動します。SEOは継続が前提のため、最低6ヶ月の伴走をおすすめしています。"
     },
     metrics: [
       "オーガニック検索からの流入が6〜12ヶ月で倍増",

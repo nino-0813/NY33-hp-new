@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: "/og.svg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "合同会社NY33 | 会社の航海に、Webのドックを。"
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og.svg"]
+    images: ["/og-image.jpg"]
   },
   robots: {
     index: true,

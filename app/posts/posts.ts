@@ -397,6 +397,12 @@ export const posts: Post[] = [
       },
       {
         type: "link",
+        label: "📘 無料プレゼント：The Data Action Blueprint（PDF 14p）",
+        href: "/resource",
+        description: "本記事と前編の内容を、ビジュアルでまとめた設計図（PDF）を無料でお渡しします"
+      },
+      {
+        type: "link",
         label: "前編：データ分析の正体は「比較」である",
         href: "/blog/data-analysis-is-comparison",
         description: "本記事の前提となる「分析＝比較」という考え方を、野菜の収穫の例で詳しく解説"
@@ -563,6 +569,12 @@ export const posts: Post[] = [
       {
         type: "note",
         text: "NY33では、『Webドック診断』で会社のWeb・AIの現在地を“比較”できる状態に整理してお届けします。『どこから手をつければいいか分からない』ところからスタートできます。"
+      },
+      {
+        type: "link",
+        label: "📘 無料プレゼント：The Data Action Blueprint（PDF 14p）",
+        href: "/resource",
+        description: "本記事と続編の内容を、ビジュアルでまとめた設計図（PDF）を無料でお渡しします"
       },
       {
         type: "link",

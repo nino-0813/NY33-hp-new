@@ -3779,6 +3779,312 @@ button {
 }
 
 /* ============================================
+   Resource Page (資料プレゼント)
+   ============================================ */
+.resource-page {
+  padding-top: 120px;
+  background: var(--bg);
+}
+
+.resource-hero {
+  padding: clamp(40px, 6vw, 80px) 0 clamp(72px, 9vw, 120px);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.resource-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  gap: clamp(40px, 6vw, 88px);
+  align-items: center;
+}
+
+.resource-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.resource-hero-label {
+  margin: 0 0 16px;
+  color: var(--red, #c94632);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.resource-hero-title {
+  margin: 0;
+  font-size: clamp(34px, 4.6vw, 56px);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.resource-hero-sub {
+  margin: 20px 0 0;
+  color: var(--ink);
+  font-size: clamp(15px, 1.6vw, 19px);
+  font-weight: 800;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+.resource-hero-lead {
+  margin: 24px 0 0;
+  color: var(--ink-2);
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 2;
+}
+
+.resource-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: clamp(32px, 4vw, 44px);
+}
+
+.resource-download-btn {
+  align-self: flex-start;
+  min-height: 64px;
+  min-width: 280px;
+  font-size: 14px;
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+
+.resource-download-btn::before {
+  background: var(--red, #c94632);
+}
+
+.resource-download-btn:hover,
+.resource-download-btn:focus-visible {
+  color: var(--bg);
+}
+
+.resource-hero-meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* cover */
+.resource-hero-cover {
+  position: relative;
+}
+
+.resource-hero-cover a {
+  display: block;
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0e1d33;
+  box-shadow: 0 24px 56px rgba(20, 17, 15, 0.18);
+  transition: transform 460ms var(--ease), box-shadow 460ms var(--ease);
+}
+
+.resource-hero-cover a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 36px 72px rgba(20, 17, 15, 0.24);
+}
+
+.resource-cover-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.resource-cover-badge {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  padding: 10px 16px;
+  background: rgba(20, 17, 15, 0.85);
+  color: var(--bg);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+/* highlights */
+.resource-highlights {
+  padding: clamp(72px, 10vw, 128px) 0;
+  background: var(--bg-soft);
+}
+
+.resource-highlight-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 2.6vw, 32px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resource-highlight-list li {
+  padding: clamp(28px, 3.5vw, 40px);
+  background: var(--bg);
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  transition: transform 380ms var(--ease), box-shadow 380ms var(--ease);
+}
+
+.resource-highlight-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.resource-highlight-num {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.resource-highlight-list h3 {
+  margin: 0 0 12px;
+  font-size: clamp(17px, 1.8vw, 22px);
+  font-weight: 900;
+  line-height: 1.45;
+}
+
+.resource-highlight-list p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: clamp(13px, 1.3vw, 15px);
+  line-height: 1.85;
+}
+
+/* author / source */
+.resource-author {
+  padding: clamp(56px, 7vw, 96px) 0;
+  background: var(--bg);
+}
+
+.resource-author-card {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(28px, 3.6vw, 44px);
+  background: var(--bg-soft);
+  border-left: 3px solid var(--ink);
+  border-radius: 0 4px 4px 0;
+}
+
+.resource-author-label {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
+
+.resource-author-body {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(13px, 1.4vw, 16px);
+  line-height: 1.95;
+}
+
+.resource-author-body strong {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.resource-author-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+/* related reading */
+.resource-related {
+  padding: clamp(72px, 10vw, 128px) 0;
+  background: var(--bg-soft);
+}
+
+.resource-related-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 2.6vw, 32px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resource-related-card {
+  position: relative;
+  display: block;
+  padding: clamp(28px, 3.4vw, 40px);
+  padding-right: 80px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  transition: border-color 380ms var(--ease), transform 380ms var(--ease),
+    box-shadow 380ms var(--ease);
+}
+
+.resource-related-card:hover {
+  border-color: var(--ink);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.resource-related-en {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.resource-related-card h3 {
+  margin: 0 0 12px;
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 900;
+  line-height: 1.5;
+}
+
+.resource-related-card p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.resource-related-card .resource-related-arrow {
+  position: absolute;
+  top: 50%;
+  right: clamp(20px, 2.6vw, 32px);
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--bg);
+  transition: color 320ms var(--ease), background 320ms var(--ease),
+    border-color 320ms var(--ease), transform 320ms var(--ease);
+}
+
+.resource-related-card:hover .resource-related-arrow {
+  color: var(--bg);
+  background: var(--ink);
+  border-color: var(--ink);
+  transform: translateY(-50%) translateX(4px);
+}
+
+/* ============================================
    Responsive
    ============================================ */
 @media (max-width: 940px) {
@@ -4063,5 +4369,19 @@ button {
 
   .approach-card-visual {
     min-height: 80px;
+  }
+
+  /* resource page mobile */
+  .resource-hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-highlight-list,
+  .resource-related-list {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-download-btn {
+    min-width: 100%;
   }
 }

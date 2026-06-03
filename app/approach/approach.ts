@@ -25,6 +25,8 @@ export type Approach = {
   title: string;
   titleJa: string;
   category: string;
+  /** ヒーロー・一覧で使うイメージ */
+  image: string;
   tagline: string;
   excerpt: string;
   forWho: string[];
@@ -52,6 +54,7 @@ export const approaches: Approach[] = [
     title: "Company Renewal",
     titleJa: "信頼が伝わるコーポレート整備",
     category: "サイト改修",
+    image: "/portfolio/portfolio-01.jpg",
     tagline: "会社の今と、Webの今を、合わせる整備。",
     excerpt:
       "5年以上前のサイトを「会社の今」に合わせて整え直す、コーポレートサイトの本格的な刷新。情報設計から運用ルールまでまとめて整備します。",
@@ -107,6 +110,7 @@ export const approaches: Approach[] = [
     title: "Booking Flow",
     titleJa: "予約・問い合わせまでの導線整備",
     category: "予約導線",
+    image: "/portfolio/portfolio-02.jpg",
     tagline: "「来てくれているのに、申し込まれない」を、解く整備。",
     excerpt:
       "サイトには訪問があるのに、予約・問い合わせにつながっていない。離脱ポイントを特定し、迷わない一本の導線に整え直します。",
@@ -161,6 +165,7 @@ export const approaches: Approach[] = [
     title: "Local Store",
     titleJa: "地域で見つけてもらう店舗ページ",
     category: "店舗サイト",
+    image: "/portfolio/portfolio-03.jpg",
     tagline: "「近くで○○」と検索する人に、まず選ばれる整備。",
     excerpt:
       "店舗の魅力を1ページに凝縮し、Googleマップ・口コミ・SNSと連動させて『瀬戸内の地域検索で見つかる』状態を整えます。",
@@ -216,6 +221,7 @@ export const approaches: Approach[] = [
     title: "AI Workflow",
     titleJa: "現場で効くAIの導入設計",
     category: "AI活用",
+    image: "/portfolio/portfolio-04.jpg",
     tagline: "派手な事例ではなく、日々の仕事に効く整備。",
     excerpt:
       "AIを「触る」段階から「現場の仕事に組み込む」段階へ。経営者と現場が一緒に試して、続けられるかたちに落とし込みます。",
@@ -270,6 +276,7 @@ export const approaches: Approach[] = [
     title: "Brand Voice",
     titleJa: "想いを言葉に整える整備",
     category: "ブランディング",
+    image: "/portfolio/portfolio-05.jpg",
     tagline: "「うちらしさ」が、自分でも語れるようになる整備。",
     excerpt:
       "経営者の中にある想い・価値観・大切にしてきたことを引き出し、社内外で使える「自分たちの言葉」として整理します。",
@@ -324,6 +331,7 @@ export const approaches: Approach[] = [
     title: "SEO Dock",
     titleJa: "検索とAIに見つけられる土台",
     category: "SEO / AIO",
+    image: "/portfolio/portfolio-06.jpg",
     tagline: "Google にも生成AI にも、引用される会社になる整備。",
     excerpt:
       "従来のSEOに加えて、ChatGPT・Gemini など生成AIに引用される構造化（AIO）を含む、検索流入の土台を整えます。",

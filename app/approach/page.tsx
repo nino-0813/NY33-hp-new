@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { SiteHeader } from "../components/SiteHeader";
@@ -58,8 +59,15 @@ export default function ApproachIndex() {
                   style={{ "--reveal-delay": `${index * 80}ms` } as React.CSSProperties}
                 >
                   <Link href={`/approach/${a.slug}`} className="approach-card">
-                    <div className="approach-card-visual" aria-hidden="true">
-                      <span className="approach-card-num">{a.number}</span>
+                    <div className="approach-card-visual">
+                      <Image
+                        src={a.image}
+                        alt={a.titleJa}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 240px"
+                        className="approach-card-visual-img"
+                      />
+                      <span className="approach-card-num" aria-hidden="true">{a.number}</span>
                     </div>
                     <div className="approach-card-body">
                       <p className="approach-card-cat">{a.category}</p>

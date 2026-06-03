@@ -14,13 +14,13 @@ const heroImage =
 const heroVideoDesktop = "/hero.mp4";
 const heroVideoMobile = "/hero-sp.mp4";
 
-const portfolioItems: { slug: string; label: string; title: string; tag: string }[] = [
-  { slug: "company-renewal", label: "Company Renewal", title: "信頼が伝わるコーポレート整備", tag: "サイト改修" },
-  { slug: "booking-flow", label: "Booking Flow", title: "予約・問い合わせまでの導線整備", tag: "予約導線" },
-  { slug: "local-store", label: "Local Store", title: "地域で見つけてもらう店舗ページ", tag: "店舗サイト" },
-  { slug: "ai-workflow", label: "AI Workflow", title: "現場で効くAIの導入設計", tag: "AI活用" },
-  { slug: "brand-voice", label: "Brand Voice", title: "想いを言葉に整える整備", tag: "ブランディング" },
-  { slug: "seo-dock", label: "SEO Dock", title: "検索とAIに見つけられる土台", tag: "SEO / AIO" }
+const portfolioItems: { slug: string; label: string; title: string; tag: string; image: string }[] = [
+  { slug: "company-renewal", label: "Company Renewal", title: "信頼が伝わるコーポレート整備", tag: "サイト改修", image: "/portfolio/portfolio-01.jpg" },
+  { slug: "booking-flow", label: "Booking Flow", title: "予約・問い合わせまでの導線整備", tag: "予約導線", image: "/portfolio/portfolio-02.jpg" },
+  { slug: "local-store", label: "Local Store", title: "地域で見つけてもらう店舗ページ", tag: "店舗サイト", image: "/portfolio/portfolio-03.jpg" },
+  { slug: "ai-workflow", label: "AI Workflow", title: "現場で効くAIの導入設計", tag: "AI活用", image: "/portfolio/portfolio-04.jpg" },
+  { slug: "brand-voice", label: "Brand Voice", title: "想いを言葉に整える整備", tag: "ブランディング", image: "/portfolio/portfolio-05.jpg" },
+  { slug: "seo-dock", label: "SEO Dock", title: "検索とAIに見つけられる土台", tag: "SEO / AIO", image: "/portfolio/portfolio-06.jpg" }
 ];
 
 const serviceItems: { slug: string; title: string; description: string }[] = [
@@ -163,7 +163,16 @@ export default function Home() {
                 key={`${item.slug}-${index}`}
               >
                 <div className="portfolio-visual">
-                  <span>{String((index % portfolioItems.length) + 1).padStart(2, "0")}</span>
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 768px) 78vw, 390px"
+                    className="portfolio-visual-img"
+                  />
+                  <span className="portfolio-visual-num" aria-hidden="true">
+                    {String((index % portfolioItems.length) + 1).padStart(2, "0")}
+                  </span>
                 </div>
                 <p>{item.label}</p>
                 <h3>{item.title}</h3>

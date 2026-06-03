@@ -674,52 +674,44 @@ button {
 
 .portfolio-visual {
   position: relative;
-  display: grid;
-  place-items: end start;
+  display: block;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  padding: 24px;
   background: #ecebe7;
   border: 1px solid var(--line);
   border-radius: 4px;
 }
 
-.portfolio-visual::before,
-.portfolio-visual::after {
+.portfolio-visual-img {
+  object-fit: cover;
+  transition: transform 900ms var(--ease), filter 600ms var(--ease);
+  filter: saturate(0.95);
+}
+
+.portfolio-card:hover .portfolio-visual-img {
+  transform: scale(1.06);
+  filter: saturate(1.05);
+}
+
+/* 写真の上に乗る番号バッジ */
+.portfolio-visual-num {
   position: absolute;
-  width: 50%;
-  height: 50%;
-  border: 1px solid rgba(20, 17, 15, 0.08);
-  content: "";
-  transition: transform 700ms var(--ease);
-}
-
-.portfolio-visual::before {
-  top: 16%;
-  left: 12%;
-}
-
-.portfolio-visual::after {
-  right: 10%;
-  bottom: 14%;
-  transform: rotate(8deg);
-}
-
-.portfolio-card:hover .portfolio-visual::before {
-  transform: translate(6px, -6px);
-}
-
-.portfolio-card:hover .portfolio-visual::after {
-  transform: rotate(8deg) translate(-6px, 6px);
-}
-
-.portfolio-visual span {
-  position: relative;
-  z-index: 1;
-  color: #cfcdc6;
-  font-size: 52px;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 28px;
+  padding: 0 12px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  font-size: 11px;
   font-weight: 900;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.12em;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
 }
 
 .portfolio-card p {
@@ -3554,34 +3546,44 @@ button {
 }
 
 .approach-card-visual {
-  display: grid;
-  place-items: center;
-  min-height: 120px;
-  background: linear-gradient(135deg, #1c2e4a 0%, #0c1825 100%);
-  color: rgba(255, 255, 255, 0.92);
-  border-radius: 4px;
   position: relative;
+  display: block;
+  min-height: 200px;
+  background: #ecebe7;
+  border-radius: 4px;
   overflow: hidden;
 }
 
-.approach-card-visual::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("/seto-chart-04.jpg");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.18;
-  mix-blend-mode: screen;
+.approach-card-visual-img {
+  object-fit: cover;
+  transition: transform 900ms var(--ease), filter 600ms var(--ease);
+  filter: saturate(0.95);
+}
+
+.approach-card:hover .approach-card-visual-img {
+  transform: scale(1.06);
+  filter: saturate(1.05);
 }
 
 .approach-card-num {
-  position: relative;
-  z-index: 1;
-  font-size: clamp(36px, 4.6vw, 56px);
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 28px;
+  padding: 0 12px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  font-size: 11px;
   font-weight: 900;
-  letter-spacing: -0.04em;
+  letter-spacing: 0.12em;
   line-height: 1;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
 }
 
 .approach-card-body {

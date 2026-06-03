@@ -58,6 +58,10 @@ export const metadata: Metadata = {
     description,
     images: ["/og-image.jpg"]
   },
+  verification: {
+    // Google Search Console (URL プレフィックス用の保険)
+    google: "6X4w5YbULu48pJ2_p-xRuqrUeIvplICPqfkKY5Fr2Nw"
+  },
   robots: {
     index: true,
     follow: true,

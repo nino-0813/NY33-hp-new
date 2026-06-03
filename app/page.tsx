@@ -278,7 +278,6 @@ export default function Home() {
                       style={{ "--reveal-delay": `${index * 80}ms` } as React.CSSProperties}
                     >
                       <Link href={`/news/${post.slug}`}>
-                        <span className="post-thumb" />
                         <span>
                           <time dateTime={post.date}>{formatPostDate(post.date)}</time>
                           <strong>{post.title}</strong>
@@ -309,7 +308,6 @@ export default function Home() {
                       style={{ "--reveal-delay": `${index * 80}ms` } as React.CSSProperties}
                     >
                       <Link href={`/blog/${post.slug}`}>
-                        <span className="post-thumb" />
                         <span>
                           <time dateTime={post.date}>{formatPostDate(post.date)}</time>
                           <strong>{post.title}</strong>

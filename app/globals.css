@@ -1104,24 +1104,13 @@ button {
 }
 
 .post-list a {
-  display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 22px;
-  align-items: center;
-  padding: 16px 0;
+  display: block;
+  padding: 18px 0;
   transition: opacity 320ms var(--ease);
 }
 
 .post-list a:hover {
   opacity: 0.62;
-}
-
-.post-thumb {
-  display: block;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  background: linear-gradient(135deg, #e9e8e4, #d6d4cd);
-  border-radius: 3px;
 }
 
 .post-list time {
@@ -4278,11 +4267,6 @@ button {
 
   .portfolio-card {
     width: 78vw;
-  }
-
-  .post-list a {
-    grid-template-columns: 96px 1fr;
-    gap: 16px;
   }
 
   .company-table div {

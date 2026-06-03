@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 
 const footerMenu: { label: string; en: string; links: { label: string; href: string }[] }[] = [
@@ -44,20 +43,6 @@ const footerMenu: { label: string; en: string; links: { label: string; href: str
     ]
   }
 ];
-
-// 制作実績（Featured Case）
-// 本番では実際のサイトURL・業種・整備内容に差し替えてください。
-const featuredCase = {
-  number: "01",
-  client: "イケベジ",
-  clientHonor: "さま",
-  industry: "瀬戸内 / 食・農産",
-  tagline: "想いを言葉に整える整備。",
-  description:
-    "地域の食を支える事業者の「らしさ」を整理し、伝わる形のWebへ整備しました。",
-  scope: ["コーポレートサイト制作", "ブランド整備", "集客導線設計"],
-  href: "/works/ikebeji"
-};
 
 const snsLinks = [
   { label: "LINE", href: "#contact" },
@@ -135,23 +120,6 @@ export function SiteFooter() {
         </div>
       </div>
 
-      {/* with DOCK ループバナー */}
-      <div className="footer-loop">
-        <div className="footer-loop-track">
-          {Array.from({ length: 6 }).map((_, index) => (
-            <div className="footer-loop-item" key={index}>
-              <p>
-                with <strong>NY33</strong>
-                <br />
-                with DOCK
-              </p>
-              <span className="footer-loop-banner" />
-              <span className="footer-loop-banner alt" />
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* 会社情報 + フッターメニュー */}
       <div className="footer-main inner-wide">
         <div className="footer-about">
@@ -208,41 +176,6 @@ export function SiteFooter() {
         </ul>
       </div>
 
-      {/* FEATURED CASE — 制作実績（一社） */}
-      <section className="footer-case">
-        <div className="inner-wide">
-          <div className="footer-case-head" data-reveal>
-            <p className="en">FEATURED CASE</p>
-            <h2 className="ja">制作実績</h2>
-          </div>
-
-          <Link
-            href={featuredCase.href}
-            className="footer-case-card"
-            data-reveal
-            style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
-          >
-            <p className="footer-case-num" aria-hidden="true">
-              CASE {featuredCase.number}
-            </p>
-            <p className="footer-case-industry">{featuredCase.industry}</p>
-            <h3 className="footer-case-client">
-              {featuredCase.client}
-              <span className="footer-case-honor">{featuredCase.clientHonor}</span>
-            </h3>
-            <p className="footer-case-tagline">{featuredCase.tagline}</p>
-            <p className="footer-case-desc">{featuredCase.description}</p>
-            <ul className="footer-case-scope">
-              {featuredCase.scope.map((s) => (
-                <li key={s}>{s}</li>
-              ))}
-            </ul>
-            <span className="footer-case-arrow" aria-hidden="true">
-              →
-            </span>
-          </Link>
-        </div>
-      </section>
 
       {/* フッター下部 */}
       <div className="footer-btm">

@@ -3379,6 +3379,276 @@ button {
 }
 
 /* ============================================
+   Approach (整備の型) Pages
+   ============================================ */
+
+/* portfolio セクションのbtn-line 横並び（型 + 実例の2ボタン） */
+.btn-line--portfolio {
+  width: var(--inner);
+  margin: clamp(32px, 4vw, 56px) auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px clamp(28px, 4vw, 48px);
+}
+
+/* ── approach 一覧カード ── */
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 2.6vw, 32px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.approach-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(100px, 0.28fr) 1fr;
+  gap: clamp(20px, 2.6vw, 32px);
+  padding: clamp(24px, 3.4vw, 36px);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: border-color 380ms var(--ease), transform 380ms var(--ease),
+    box-shadow 380ms var(--ease);
+}
+
+.approach-card:hover {
+  border-color: var(--ink);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.approach-card-visual {
+  display: grid;
+  place-items: center;
+  min-height: 120px;
+  background: linear-gradient(135deg, #1c2e4a 0%, #0c1825 100%);
+  color: rgba(255, 255, 255, 0.92);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.approach-card-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/seto-chart-04.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.18;
+  mix-blend-mode: screen;
+}
+
+.approach-card-num {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(36px, 4.6vw, 56px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.approach-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 50px;
+}
+
+.approach-card-cat {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.approach-card-en {
+  margin: 0;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.approach-card-ja {
+  margin: 4px 0 6px;
+  font-size: clamp(13px, 1.4vw, 15px);
+  font-weight: 700;
+  color: var(--ink-2);
+}
+
+.approach-card-tag {
+  margin: 0;
+  font-size: clamp(14px, 1.5vw, 17px);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+
+.approach-card-excerpt {
+  margin: 4px 0 0;
+  color: var(--ink-2);
+  font-size: 13px;
+  line-height: 1.85;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.approach-card-arrow {
+  position: absolute;
+  top: clamp(20px, 2.6vw, 32px);
+  right: clamp(20px, 2.6vw, 32px);
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--bg);
+  transition: color 320ms var(--ease), background 320ms var(--ease),
+    border-color 320ms var(--ease), transform 320ms var(--ease);
+}
+
+.approach-card:hover .approach-card-arrow {
+  color: var(--bg);
+  background: var(--ink);
+  border-color: var(--ink);
+  transform: translateX(4px);
+}
+
+/* ── 詳細ページ ── */
+.approach-hero-num {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
+
+.approach-problem {
+  padding: clamp(64px, 9vw, 112px) 0;
+  background: var(--bg);
+}
+
+.approach-problem-text {
+  margin: 0;
+  max-width: 760px;
+  color: var(--ink-2);
+  font-size: clamp(15px, 1.6vw, 19px);
+  font-weight: 500;
+  line-height: 2.1;
+}
+
+.approach-metrics {
+  padding: clamp(64px, 9vw, 112px) 0;
+  background: var(--bg-soft);
+}
+
+.approach-metrics-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px clamp(24px, 3vw, 40px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.approach-metrics-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: clamp(14px, 1.5vw, 17px);
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.approach-metrics-bullet {
+  color: var(--ink);
+  font-size: 10px;
+  margin-top: 6px;
+}
+
+.approach-metrics-note {
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+.approach-related {
+  padding: clamp(64px, 9vw, 112px) 0;
+  background: var(--bg);
+}
+
+.approach-related-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.approach-related-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: clamp(20px, 2.4vw, 28px);
+  background: var(--bg-soft);
+  border-radius: 4px;
+  transition: background 320ms var(--ease), transform 320ms var(--ease);
+}
+
+.approach-related-card:hover {
+  background: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+.approach-related-label {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.approach-related-arrow {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 14px;
+  color: var(--ink);
+  transition: color 320ms var(--ease), background 320ms var(--ease),
+    border-color 320ms var(--ease), transform 320ms var(--ease);
+}
+
+.approach-related-card:hover .approach-related-arrow {
+  color: var(--bg);
+  background: var(--ink);
+  border-color: var(--ink);
+  transform: translateX(3px);
+}
+
+/* ============================================
    Responsive
    ============================================ */
 @media (max-width: 940px) {
@@ -3643,5 +3913,25 @@ button {
 
   .work-hero-visual {
     min-height: 220px;
+  }
+
+  /* approach pages mobile */
+  .approach-grid,
+  .approach-metrics-list,
+  .approach-related-list {
+    grid-template-columns: 1fr;
+  }
+
+  .approach-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .approach-card-body {
+    padding-right: 0;
+  }
+
+  .approach-card-visual {
+    min-height: 80px;
   }
 }

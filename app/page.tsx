@@ -14,13 +14,13 @@ const heroImage =
 const heroVideoDesktop = "/hero.mp4";
 const heroVideoMobile = "/hero-sp.mp4";
 
-const portfolioItems = [
-  ["Company Renewal", "信頼が伝わるコーポレート整備", "サイト改修"],
-  ["Booking Flow", "予約・問い合わせまでの導線整備", "予約導線"],
-  ["Local Store", "地域で見つけてもらう店舗ページ", "店舗サイト"],
-  ["AI Workflow", "現場で効くAIの導入設計", "AI活用"],
-  ["Brand Voice", "想いを言葉に整える整備", "ブランディング"],
-  ["SEO Dock", "検索とAIに見つけられる土台", "SEO / AIO"]
+const portfolioItems: { slug: string; label: string; title: string; tag: string }[] = [
+  { slug: "company-renewal", label: "Company Renewal", title: "信頼が伝わるコーポレート整備", tag: "サイト改修" },
+  { slug: "booking-flow", label: "Booking Flow", title: "予約・問い合わせまでの導線整備", tag: "予約導線" },
+  { slug: "local-store", label: "Local Store", title: "地域で見つけてもらう店舗ページ", tag: "店舗サイト" },
+  { slug: "ai-workflow", label: "AI Workflow", title: "現場で効くAIの導入設計", tag: "AI活用" },
+  { slug: "brand-voice", label: "Brand Voice", title: "想いを言葉に整える整備", tag: "ブランディング" },
+  { slug: "seo-dock", label: "SEO Dock", title: "検索とAIに見つけられる土台", tag: "SEO / AIO" }
 ];
 
 const serviceItems: { slug: string; title: string; description: string }[] = [
@@ -153,25 +153,36 @@ export default function Home() {
 
         <section className="top-portfolio" id="portfolio">
           <div className="inner">
-            <SectionCopy en="PORTFOLIO" ja="制作事例" />
+            <SectionCopy en="PORTFOLIO" ja="整備の型" />
           </div>
-          <div className="portfolio-track" aria-label="制作の方向性">
-            {[...portfolioItems, ...portfolioItems].map(([label, title, tag], index) => (
-              <article className="portfolio-card" key={`${label}-${index}`}>
+          <div className="portfolio-track" aria-label="整備の型">
+            {[...portfolioItems, ...portfolioItems].map((item, index) => (
+              <Link
+                className="portfolio-card"
+                href={`/approach/${item.slug}`}
+                key={`${item.slug}-${index}`}
+              >
                 <div className="portfolio-visual">
                   <span>{String((index % portfolioItems.length) + 1).padStart(2, "0")}</span>
                 </div>
-                <p>{label}</p>
-                <h3>{title}</h3>
+                <p>{item.label}</p>
+                <h3>{item.title}</h3>
                 <ul>
-                  <li>{tag}</li>
+                  <li>{item.tag}</li>
                 </ul>
-              </article>
+              </Link>
             ))}
           </div>
-          <div className="btn-line">
-            <Link className="link-btn" href="/works">
-              <span>VIEW ALL WORKS</span>
+          <div className="btn-line btn-line--portfolio">
+            <Link className="link-btn" href="/approach">
+              <span>VIEW ALL APPROACH</span>
+            </Link>
+            <Link className="link-btn-arrow" href="/works">
+              <span className="text-wrap">
+                <span className="text">実例 / WORKS</span>
+                <span className="text mask">実例 / WORKS</span>
+              </span>
+              <span className="circle" aria-hidden="true">→</span>
             </Link>
           </div>
         </section>

@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 import { services } from "./service/services";
 import { posts } from "./posts/posts";
 import { works } from "./works/works";
+import { approaches } from "./approach/approach";
 
 const BASE = "https://ny33.jp";
 
@@ -12,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${BASE}/`, lastModified: now, changeFrequency: "monthly", priority: 1 },
     { url: `${BASE}/service`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/approach`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/works`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/news`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
@@ -40,5 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7
   }));
 
-  return [...staticPages, ...servicePages, ...postPages, ...workPages];
+  const approachPages: MetadataRoute.Sitemap = approaches.map((a) => ({
+    url: `${BASE}/approach/${a.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.75
+  }));
+
+  return [...staticPages, ...servicePages, ...postPages, ...workPages, ...approachPages];
 }

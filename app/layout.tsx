@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { GoogleAnalytics } from "./components/GoogleAnalytics";
 
 const siteUrl = "https://ny33.jp";
 const title = "合同会社NY33 | 瀬戸内の会社を支えるWebとAIのドック";
@@ -88,7 +89,10 @@ export default function RootLayout({
           <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <GoogleAnalytics />
+      </body>
     </html>
   );
 }

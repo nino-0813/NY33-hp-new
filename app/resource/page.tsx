@@ -154,16 +154,17 @@ export default function ResourcePage() {
         <section className="resource-author">
           <div className="inner">
             <div className="resource-author-card" data-reveal>
-              <p className="resource-author-label">SOURCE / 原典</p>
+              <p className="resource-author-label">PUBLISHER / 発行</p>
               <p className="resource-author-body">
-                本資料は、アユダンテ株式会社 取締役COO・
-                <strong>山浦 直博 氏</strong>のデータ活用に関する公開知見をもとに、
-                NY33が再構成・編集したものです。データ活用の全体像をビジュアルで
-                整理し直し、瀬戸内の中小企業の経営者さま・現場担当者さまに届く
-                ように調整しています。
+                本資料は <strong>合同会社NY33（代表社員 二宮 佑介）</strong>が、
+                データ活用の領域における公開知見を再構成・編集して発行しています。
+                難解な統計用語を削ぎ落とし、瀬戸内の中小企業の経営者さま・現場
+                担当者さまに伝わる形に整え直しました。
               </p>
               <p className="resource-author-note">
-                出典・原著作の二次配布に関するご要望があれば、お気軽にお問い合わせください。
+                内容のご感想・改善のリクエストはもちろん、社内勉強会等での利用に
+                ついても歓迎しています。お気軽に
+                <Link href="/contact">お問い合わせ</Link>からご連絡ください。
               </p>
             </div>
           </div>

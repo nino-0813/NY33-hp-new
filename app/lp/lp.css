@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================================
+   LP scoped reset
+   Tailwind の preflight はグローバル無効化しているため（既存サイト保護）、
+   LP に必要なリセットだけを .lp-root 配下に限定して適用する。
+   ========================================================================= */
+.lp-root {
+  font-family: var(--font-sans), "Hiragino Sans", system-ui, sans-serif;
+  line-height: 1.6;
+  letter-spacing: normal;
+  color: #222222;
+}
+.lp-root *,
+.lp-root *::before,
+.lp-root *::after {
+  box-sizing: border-box;
+}
+.lp-root h1,
+.lp-root h2,
+.lp-root h3,
+.lp-root h4,
+.lp-root p,
+.lp-root figure,
+.lp-root dl,
+.lp-root dd {
+  margin: 0;
+}
+.lp-root ul,
+.lp-root ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.lp-root table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.lp-root input,
+.lp-root button,
+.lp-root textarea,
+.lp-root select {
+  font: inherit;
+  color: inherit;
+}
+.lp-root button {
+  cursor: pointer;
+}
+
+:root {
+  --red-grad: linear-gradient(120deg, #ff2d3f 0%, #e60023 50%, #c20019 100%);
+  --orange-grad: linear-gradient(120deg, #ff9b1a 0%, #f08200 100%);
+}
+
+@layer utilities {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 md:px-8;
+  }
+  .eyebrow {
+    @apply text-xs font-bold tracking-widest2 text-brand-red;
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* diagonal speed-line hero background */
+.hero-red {
+  background: radial-gradient(120% 90% at 80% 10%, #ff3a4a 0%, #e60023 45%, #b3001a 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero-red::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: repeating-linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.08) 0px,
+    rgba(255, 255, 255, 0.08) 2px,
+    transparent 2px,
+    transparent 26px
+  );
+  transform: skewY(-4deg);
+  pointer-events: none;
+}
+.hero-red::after {
+  content: "";
+  position: absolute;
+  right: -10%;
+  top: -10%;
+  width: 70%;
+  height: 130%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.12), transparent 60%);
+  transform: skewX(-12deg);
+  pointer-events: none;
+}
+
+.dark-grad {
+  background: radial-gradient(120% 100% at 50% 0%, #2a0608 0%, #1a0405 55%, #0c0203 100%);
+}
+.red-grad {
+  background: radial-gradient(120% 120% at 50% -10%, #ff2d3f 0%, #d6001d 55%, #a8001a 100%);
+}

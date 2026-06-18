@@ -20,9 +20,8 @@ export const metadata: Metadata = {
   title: "集客動線設計 | 合同会社NY33",
   description:
     "戦略設計・Web実装・計測・自動化を一社で。因島・尾道発、地方の事業を伸ばす集客動線設計のパートナー。無料相談受付中。",
-  alternates: { canonical: "/lp" },
-  // 広告用の独立LP。本サイトのSEOと切り離すため検索結果には出さない。
-  robots: { index: false, follow: false },
+  alternates: { canonical: "/service-lp" },
+  robots: { index: true, follow: true },
 };
 
 export default function LpLayout({

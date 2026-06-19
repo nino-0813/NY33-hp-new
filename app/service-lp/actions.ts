@@ -2,6 +2,7 @@
 
 import { headers } from "next/headers";
 import { getAdminClient } from "../lib/supabase";
+import { sendMail } from "../lib/mail";
 
 export type LeadFormState = {
   ok: boolean;
@@ -44,6 +45,34 @@ export async function submitLead(
         error: "送信中にエラーが発生しました。時間をおいて再度お試しください。",
       };
     }
+
+    // NY33宛の通知
+    await sendMail({
+      replyTo: email,
+      subject: `[Webドック] 集客診断フォーム: ${name} さま`,
+      text: [
+        "service-lp フォームから送信がありました。",
+        "",
+        `お名前: ${name}`,
+        `メール: ${email}`,
+        "",
+        "内容:",
+        message || "（記載なし）",
+      ].join("\n"),
+    });
+    // 送信者への自動返信
+    await sendMail({
+      to: email,
+      subject: "【自動返信】お問い合わせを受け取りました｜合同会社NY33",
+      text: [
+        `${name} さま`,
+        "",
+        "お問い合わせありがとうございます。内容を確認のうえ、担当よりご連絡します。",
+        "",
+        "合同会社NY33（Webドック）",
+        "https://ny33.jp/service-lp",
+      ].join("\n"),
+    });
 
     return { ok: true };
   } catch (e) {

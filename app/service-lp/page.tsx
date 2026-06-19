@@ -1,4 +1,5 @@
 import { Header, Reveal } from "./_components/SiteChrome";
+import { LeadForm } from "./_components/LeadForm";
 
 /* ---------- data ---------- */
 
@@ -8,14 +9,14 @@ const HERO_BADGES = [
   { top: "対応範囲", big: "一気通貫", sub: "" },
 ];
 
-const COMPARE_COLS = ["AIで自分で作る", "一般的な制作会社", "NY33"];
+const COMPARE_COLS = ["自作・ノーコード", "従来の制作会社", "NY33"];
 const COMPARE_ROWS = [
-  ["制作費用", "ツール代＋自分の作業時間", "70万円〜", "戦略込みでご提案"],
-  ["運用費用", "月1,000〜3万円程度", "月3万円〜", "成果に合わせて設計"],
-  ["デザイン", "似た印象になりやすい", "オリジナル", "オリジナル"],
-  ["セキュリティ対策", "自分で管理・対応", "納品時に設定", "常時SSL・サーバー管理"],
-  ["分析・改善", "自分で判断・実装", "別途で契約必要", "GA4＋AIで継続改善"],
-  ["集客動線", "設計まで手が回らない", "サイト内のみ", "戦略から自動化まで横断"],
+  ["立ち上げ方", "テンプレに当てはめる", "要件どおりに制作", "目的から逆算して設計"],
+  ["集客の戦略", "基本は自己流", "対応範囲外が多い", "コピー・チャネルまで設計"],
+  ["デザイン", "他社と似通いがち", "オリジナルで対応", "業種の世界観ごと表現"],
+  ["公開後の運用", "手探りで対応", "別契約になりがち", "改善まで継続して伴走"],
+  ["データ活用", "見る余裕がない", "計測は任意", "GA4とAIで毎月改善"],
+  ["セキュリティ", "自分で管理", "納品時のみ設定", "SSL・サーバーまで管理"],
 ];
 
 const PHONE = (label: string, sub: string, img: string) => ({ label, sub, img });
@@ -61,16 +62,16 @@ const PLAN_COMMON = [
 
 const PLAN_EXAMPLES = [
   {
-    name: "larimar",
+    name: "イケベジ",
     tag: "GROWTH",
-    desc: "美容サロンの世界観と予約導線を一画面で伝えるサイト。",
+    desc: "お米農家のEC。生産者の世界観と「買える」導線をつないだサイト。",
     img: "/mocks/3.svg",
   },
   {
-    name: "蓮REN",
+    name: "N nail",
     tag: "STARTER",
-    desc: "脳洗浄サロンの体験価値を、悩み起点のコピーで設計したLP。",
-    img: "/mocks/2.svg",
+    desc: "ネイルサロンの世界観を、写真と予約導線で伝えるサイト。",
+    img: "/mocks/6.svg",
   },
   {
     name: "HotelPG",
@@ -82,52 +83,52 @@ const PLAN_EXAMPLES = [
 
 const AI_CARDS = [
   {
-    tag: "AI診断",
-    title: "AIが改善候補をご提案",
-    body: "アクセス状況やページ内容をもとに、お問い合わせを増やすための改善候補を提案します。",
+    tag: "分析",
+    title: "データから伸びしろを発見",
+    body: "アクセスや問い合わせの動きをAIで読み解き、止まっている箇所と次に効く一手を洗い出します。",
   },
   {
-    tag: "承認",
-    title: "あなたが内容を見て承認",
-    body: "提案は勝手に反映されません。納得したものだけを承認できます。",
+    tag: "確認",
+    title: "提案はご自身で判断",
+    body: "勝手に変更は加えません。中身を見て、納得いただいた改善だけを進めます。",
   },
   {
-    tag: "実装",
-    title: "NY33が実装する",
-    body: "承認された改善はプロが反映。自分でサイトを触る必要はありません。",
+    tag: "反映",
+    title: "実装はこちらで対応",
+    body: "承認後の作業はNY33が担当。サイトを自分で触る手間はかかりません。",
   },
 ];
 
 const STEPS = [
   {
     step: "STEP1",
-    title: "ヒアリング・現状分析",
-    you: "事業の強み・課題を共有",
+    title: "ヒアリングと現状把握",
+    you: "事業の強みと課題を共有",
     us: "顧客・競合・既存データを分析",
   },
   {
     step: "STEP2",
-    title: "戦略・初稿確認",
-    you: "完成イメージとして初稿を確認",
-    us: "集客動線の設計図とデモを制作",
+    title: "設計とたたき台の提示",
+    you: "完成イメージとしてたたき台を確認",
+    us: "集客動線の設計図と試作を用意",
   },
   {
     step: "STEP3",
-    title: "修正依頼",
-    you: "直したい箇所を画面上で指定",
-    us: "修正内容を整理し、デザイン・文章を反映",
+    title: "ブラッシュアップ",
+    you: "気になる箇所を画面上で指摘",
+    us: "ご要望を整理し、文章・デザインに反映",
   },
   {
     step: "STEP4",
-    title: "スマホ確認",
-    you: "スマホ表示で見づらい箇所を確認",
-    us: "文字サイズ・ボタン・導線を最適化",
+    title: "スマホでの最終調整",
+    you: "スマホでの見え方を確認",
+    us: "文字・ボタン・導線をモバイル向けに調整",
   },
   {
     step: "STEP5",
-    title: "公開確認",
-    you: "最終内容を確認",
-    us: "ドメイン接続を行い、公開",
+    title: "公開",
+    you: "最終チェック",
+    us: "ドメインを接続して公開",
   },
 ];
 
@@ -184,23 +185,23 @@ function Phone({
   );
 }
 
-function CTAButtons({ onDark = false }: { onDark?: boolean }) {
+function CTAButtons() {
   return (
     <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
       <a href="#contact" className="group flex flex-col items-center">
         <span className="mb-1.5 rounded-full bg-ink px-3 py-0.5 text-[10px] font-bold text-white">
-          契約不要・見るだけOK
+          相談無料・営業なし
         </span>
         <span className="rounded-full bg-[image:var(--red-grad)] px-10 py-4 font-black text-white shadow-lg transition-transform group-hover:scale-[1.03]">
-          無料デモサイト依頼
+          無料で集客診断
         </span>
       </a>
       <a href="#contact" className="group flex flex-col items-center">
         <span className="mb-1.5 rounded-full bg-ink px-3 py-0.5 text-[10px] font-bold text-white">
-          検討中の方もお気軽に
+          情報収集だけでもOK
         </span>
         <span className="rounded-full bg-[image:var(--orange-grad)] px-10 py-4 font-black text-white shadow-lg transition-transform group-hover:scale-[1.03]">
-          オンライン無料相談
+          オンラインで相談する
         </span>
       </a>
     </div>
@@ -234,75 +235,38 @@ export default function Home() {
               </div>
             </Reveal>
 
+            <Reveal delay={60}>
+              <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/40 px-4 py-1.5 text-xs font-bold tracking-widest2 text-white">
+                WEB DOCK
+                <span className="font-medium tracking-normal text-white/80">集客動線設計サービス</span>
+              </p>
+            </Reveal>
             <Reveal delay={80}>
               <p className="mb-3 inline-block text-2xl font-black italic text-white drop-shadow md:text-3xl">
-                “挑戦者の価値を、届ける”
+                “その良さ、ちゃんと届いていますか。”
               </p>
             </Reveal>
             <Reveal delay={140}>
-              <h1 className="text-4xl font-black leading-[1.3] text-white drop-shadow-lg sm:text-5xl md:text-[3.4rem]">
-                集客動線設計で叶える
-                <br />
-                <span className="bg-white px-2 text-brand-red">Web制作 &amp; 運用代行</span>
+              <h1 className="text-4xl font-black leading-[1.35] text-white drop-shadow-lg sm:text-5xl md:text-[3.2rem]">
+                人が集まる仕組みを、
+                <br className="hidden sm:block" />
+                つくる。
               </h1>
+              <span className="mt-5 inline-block bg-white px-3 py-1.5 text-3xl font-black leading-none text-brand-red shadow-md sm:text-4xl">
+                Webドック
+              </span>
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-6 max-w-lg text-base leading-relaxed text-white/90">
-                戦略設計・実装・計測・自動化を一社で。
-                因島・尾道発、地方の事業を伸ばすパートナーです。
+                戦略づくりから制作・計測・改善までを、まとめて一社で。
+                因島・尾道から、地方の事業の成長に伴走します。
               </p>
             </Reveal>
           </div>
 
           {/* form card */}
           <Reveal delay={160} className="lg:col-span-5">
-            <div className="rounded-2xl bg-white p-6 shadow-2xl md:p-7">
-              <span className="mb-4 inline-block rounded-md bg-[image:var(--red-grad)] px-3 py-1 text-xs font-bold text-white">
-                契約不要・見るだけOK
-              </span>
-              <h2 className="text-2xl font-black leading-snug text-ink">
-                あなたの事業の
-                <br />
-                デモサイトを<span className="text-brand-red">無料</span>で。
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed text-ink/60">
-                いくつかの質問に答えるだけで、あなたの事業に合わせたデモサイトをご用意。担当者がオンラインでご提案します。
-              </p>
-
-              <form className="mt-6 space-y-4" action="#contact">
-                <div>
-                  <label className="mb-1 flex items-center gap-2 text-xs font-bold text-ink">
-                    お名前
-                    <span className="rounded bg-brand-red px-1.5 py-0.5 text-[10px] text-white">必須</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="例）山田 太郎"
-                    className="w-full rounded-lg border border-ink/15 px-3 py-3 text-sm outline-none focus:border-brand-red"
-                  />
-                </div>
-                <div>
-                  <label className="mb-1 flex items-center gap-2 text-xs font-bold text-ink">
-                    メールアドレス
-                    <span className="rounded bg-brand-red px-1.5 py-0.5 text-[10px] text-white">必須</span>
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="例）mail@example.com"
-                    className="w-full rounded-lg border border-ink/15 px-3 py-3 text-sm outline-none focus:border-brand-red"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full rounded-lg bg-[image:var(--red-grad)] py-4 font-black text-white shadow-md transition-transform hover:scale-[1.02]"
-                >
-                  無料デモサイト依頼へ進む
-                </button>
-                <p className="text-center text-[11px] text-ink/40">
-                  送信によりプライバシーポリシーに同意したものとします
-                </p>
-              </form>
-            </div>
+            <LeadForm />
           </Reveal>
         </div>
       </section>
@@ -311,37 +275,37 @@ export default function Home() {
       <section id="mission" className="bg-white py-24 md:py-32">
         <div className="container-x text-center">
           <Reveal>
-            <p className="eyebrow mb-2">挑戦者の価値を届ける</p>
+            <p className="eyebrow mb-2">私たちの考え方</p>
             <h2 className="text-4xl font-black tracking-wide text-ink md:text-5xl">MISSION</h2>
           </Reveal>
           <Reveal delay={120}>
-            <div className="mx-auto mt-12 max-w-2xl space-y-7 text-left text-[15px] leading-loose text-ink/80 md:text-base">
+            <div className="mx-auto mt-12 max-w-2xl space-y-7 text-center text-[15px] leading-loose text-ink/80 md:text-base">
               <p>
-                SNS、広告メディアのフォーマット。
+                良いサービスをやっているのに、
                 <br />
-                その枠内であなたの価値は伝わりますか？
+                それがうまく伝わっていない。
               </p>
               <p>
-                私たちNY33のミッションは
+                そんな事業を、私たちは何度も見てきました。
                 <br />
-                <span className="font-black text-brand-red">「挑戦者の価値を届ける」</span>
+                NY33が大切にしているのは
+                <br />
+                <span className="font-black text-brand-red">「良さが、ちゃんと伝わる状態をつくる」</span>こと。
               </p>
               <p>
-                あなたが磨き上げた価値を言語化し、
+                強みを言葉にし、誰にどう届けるかを設計し、
                 <br />
-                その価値を自由に表現する場として
+                それを形にできる場として
                 <br />
-                集客の動線を設計します。
+                集客の動線を組み立てます。
               </p>
+              <p>そして、つくって終わりにはしません。</p>
               <p>
-                勿論、作っただけで終わりません。
-              </p>
-              <p>
-                その後の運用・改善まで伴走することで
+                数字を見ながら運用・改善を重ね、
                 <br />
-                「届けたい人に価値を届ける」
+                狙った人にきちんと届くまで、
                 <br />
-                その瞬間までこだわります。
+                隣で手を動かし続けます。
               </p>
             </div>
           </Reveal>
@@ -363,11 +327,11 @@ export default function Home() {
         <div className="container-x">
           <Reveal className="mb-12 text-center">
             <h2 className="text-2xl font-black leading-relaxed text-ink md:text-3xl">
-              自分で作るか。
+              つくって終わりにするか。
               <br />
-              納品までを頼むか。
+              成果が出るまで付き合うか。
               <br />
-              公開後も<span className="text-brand-red">一緒に育てていく</span>か。
+              ここが<span className="text-brand-red">大きな分かれ目</span>です。
             </h2>
           </Reveal>
 
@@ -412,12 +376,12 @@ export default function Home() {
         <div className="container-x text-center">
           <Reveal>
             <span className="mb-5 inline-block rounded-full bg-[image:var(--orange-grad)] px-4 py-1.5 text-xs font-bold text-white">
-              完全オリジナルで叶う
+              業種に合わせて一から設計
             </span>
             <h2 className="text-3xl font-black leading-snug text-white md:text-4xl">
-              完全オリジナル、
+              一社ずつ違う、
               <br />
-              あなただけのホームページ
+              世界観ごと伝わるサイトへ。
             </h2>
           </Reveal>
         </div>
@@ -434,8 +398,11 @@ export default function Home() {
       <section id="services" className="bg-pink-soft py-24 md:py-32">
         <div className="container-x">
           <Reveal className="mb-12">
-            <p className="eyebrow mb-2">サービス内容と料金</p>
+            <p className="eyebrow mb-2">提供できること</p>
             <h2 className="text-4xl font-black tracking-wide text-ink md:text-5xl">WHAT WE DO</h2>
+            <p className="mt-4 text-base font-bold text-ink/70">
+              集客動線設計サービス「<span className="text-brand-red">Webドック（Web Dock）</span>」
+            </p>
           </Reveal>
 
           <div className="grid items-center gap-10 lg:grid-cols-2">
@@ -443,8 +410,8 @@ export default function Home() {
               <div className="relative aspect-video overflow-hidden rounded-2xl bg-gradient-to-br from-brand-reddark to-ink shadow-xl">
                 <div className="absolute inset-0 flex flex-col justify-between p-6 text-white">
                   <div className="space-y-1">
-                    <p className="inline-block bg-brand-red px-2 py-0.5 text-sm font-black">制作費0円</p>
-                    <p className="text-2xl font-black">集客動線を、設計する。</p>
+                    <p className="inline-block bg-brand-red px-2 py-0.5 text-sm font-black">Webドック</p>
+                    <p className="text-2xl font-black">集客の動線を、設計する。</p>
                   </div>
                   <p className="text-sm font-bold">合同会社NY33 代表 二宮 佑介</p>
                 </div>
@@ -456,15 +423,15 @@ export default function Home() {
 
             <Reveal delay={120}>
               <h3 className="text-2xl font-black leading-relaxed text-ink">
-                戦略設計
+                戦略づくりから
                 <br />
-                実装・運用代行
+                制作・運用まで
                 <br />
-                必要なのは<span className="text-brand-red">成果への一本の動線</span>
+                <span className="text-brand-red">成果につながる一本の線</span>に。
               </h3>
               <p className="mt-5 leading-relaxed text-ink/70">
-                挑戦する企業・個人事業主を支援するために生まれた、
-                集客動線設計型のWeb制作＆運用代行です。戦略から実装・計測・自動化までを一社で横断します。
+                がんばる企業や個人事業主の力になりたくて生まれたサービスです。
+                戦略・制作・計測・改善までを一社で受け持ち、バラバラだった施策を一つの動線にまとめます。
               </p>
             </Reveal>
           </div>
@@ -476,9 +443,9 @@ export default function Home() {
         <div className="container-x">
           <Reveal className="mb-10">
             <h2 className="text-2xl font-black leading-snug text-ink md:text-3xl">
-              比較するのは
+              選ぶ基準は
               <br />
-              目的とフェーズだけ
+              「いまの目的」だけ
             </h2>
             <ul className="mt-4 space-y-1 text-xs text-ink/50">
               <li>※ 料金は事業の状況・目的に応じてお見積りします。</li>
@@ -522,7 +489,7 @@ export default function Home() {
           {/* common */}
           <Reveal delay={120}>
             <div className="mt-8 rounded-2xl bg-white p-8 shadow-sm">
-              <h3 className="mb-6 text-lg font-black text-ink">全プラン共通で含まれるもの</h3>
+              <h3 className="mb-6 text-lg font-black text-ink">どのプランにも含まれるもの</h3>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {PLAN_COMMON.map((c) => (
                   <div key={c.title}>
@@ -592,12 +559,12 @@ export default function Home() {
               NY33 AI
             </span>
             <h2 className="text-3xl font-black leading-snug text-white md:text-4xl">
-              サイトの改善提案が
+              次の一手が、
               <br />
-              毎月アプリに届く
+              毎月レポートで届く
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-white/85">
-              作って終わりにしないために、サイトの分析・改善に特化したAIアプリを提供します。
+            <p className="mx-auto mt-5 max-w-xl text-center text-sm leading-relaxed text-white/85">
+              公開してからが本番です。アクセスデータをAIで読み解き、改善の打ち手を毎月お渡しします。
             </p>
           </Reveal>
 
@@ -622,7 +589,7 @@ export default function Home() {
 
           <Reveal delay={120}>
             <div className="mt-14">
-              <CTAButtons onDark />
+              <CTAButtons />
             </div>
           </Reveal>
         </div>
@@ -632,10 +599,10 @@ export default function Home() {
       <section id="process" className="bg-white py-24 md:py-32">
         <div className="container-x">
           <Reveal className="mb-12 text-center">
-            <p className="eyebrow mb-2">制作の流れ</p>
+            <p className="eyebrow mb-2">ご依頼から公開まで</p>
             <h2 className="text-4xl font-black tracking-wide text-ink md:text-5xl">5 PROCESS</h2>
             <p className="mt-4 text-sm text-ink/60">
-              制作期間の目安は4〜8週間。最短2週間で公開も可能。
+              目安はおよそ4〜8週間。お急ぎの場合は最短2週間での公開にも対応します。
             </p>
           </Reveal>
 
@@ -644,15 +611,15 @@ export default function Home() {
             <div className="mb-10 flex flex-col gap-6 rounded-2xl bg-pink-soft p-6 md:flex-row md:items-center">
               <div className="aspect-video w-full shrink-0 rounded-xl bg-gradient-to-br from-ink to-brand-reddark md:w-64" />
               <div>
-                <p className="eyebrow mb-1">少数精鋭でサポート</p>
-                <h3 className="text-xl font-black text-ink">一気通貫の担当制</h3>
+                <p className="eyebrow mb-1">窓口はひとつ</p>
+                <h3 className="text-xl font-black text-ink">最初から最後まで同じチームで</h3>
                 <div className="my-3 flex flex-wrap gap-2 text-xs font-bold text-brand-red">
                   <span className="rounded bg-pink px-2 py-1">戦略設計</span>
                   <span className="rounded bg-pink px-2 py-1">デザイン・実装</span>
                   <span className="rounded bg-pink px-2 py-1">運用・改善</span>
                 </div>
                 <p className="text-sm leading-relaxed text-ink/70">
-                  ヒアリングから戦略設計・制作・公開・運用まで、窓口は一つ。各工程が分断されないため、成果につながる動線を一貫して設計できます。
+                  ヒアリング・戦略・制作・公開・運用までを、同じチームが担当します。工程が分断されないので、伝えたいことがブレずに最後まで届きます。
                 </p>
               </div>
             </div>
@@ -686,7 +653,7 @@ export default function Home() {
 
           <Reveal delay={80}>
             <div className="mt-10 text-center">
-              <p className="font-black text-brand-red">公開後、運用を開始</p>
+              <p className="font-black text-brand-red">公開後は、運用フェーズへ。</p>
               <div className="mx-auto mt-3 h-12 w-px bg-brand-red/40" />
             </div>
           </Reveal>
@@ -698,9 +665,9 @@ export default function Home() {
         <div className="container-x text-center">
           <Reveal>
             <h2 className="text-3xl font-black leading-snug text-ink md:text-4xl">
-              完全オリジナル、
+              一社ずつ違う、
               <br />
-              あなただけのホームページ
+              世界観ごと伝わるサイトへ。
             </h2>
           </Reveal>
         </div>
@@ -728,14 +695,14 @@ export default function Home() {
               <div>
                 <p className="text-sm text-ink/50">サロンオーナー 様</p>
                 <h3 className="mt-2 text-xl font-black text-ink">
-                  事業の本質を気づかせてくれる存在
+                  「何を伝えるか」から一緒に考えてくれた
                 </h3>
                 <div className="mt-5 space-y-4 text-sm leading-loose text-ink/70">
                   <p>
-                    集客が必要になり、サイト制作をNY33に依頼しました。こちらの想いや大事にしている考えを丁寧に汲み取っていただき、事業に合ったコンセプトを持つサイトに仕上げていただきました。
+                    集客に困って相談しました。デザインの前にまず、私たちの強みやお客さまのことを一緒に整理してくれたのが印象的で、出来上がったサイトは「自分たちの言葉」になっていました。
                   </p>
                   <p>
-                    全体で意図を理解しながら進めてくれる安心感があり、複数の施策でもスムーズに進行できました。
+                    公開後も数字を見ながら次の手を提案してくれるので、迷わず運用を続けられています。
                   </p>
                 </div>
               </div>
@@ -772,19 +739,12 @@ export default function Home() {
               <br className="sm:hidden" />
               一緒に見直しませんか。
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-white/85">
+            <p className="mx-auto mt-5 max-w-xl text-center text-white/85">
               ご相談は無料です。事業の状況をお聞きした上で、集客動線のどこに伸びしろがあるかをご提案します。
             </p>
             <div className="mt-10">
-              <CTAButtons onDark />
+              <CTAButtons />
             </div>
-            <p className="mt-8 text-sm text-white/70">
-              お急ぎの方は{" "}
-              <a href="mailto:nino5040@icloud.com" className="font-bold text-white underline">
-                nino5040@icloud.com
-              </a>{" "}
-              まで
-            </p>
           </Reveal>
         </div>
       </section>

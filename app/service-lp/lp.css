@@ -18,34 +18,26 @@
 .lp-root *::after {
   box-sizing: border-box;
 }
-.lp-root h1,
-.lp-root h2,
-.lp-root h3,
-.lp-root h4,
-.lp-root p,
-.lp-root figure,
-.lp-root dl,
-.lp-root dd {
+/* Element resets are wrapped in :where() so their specificity stays at 0.
+   Otherwise `.lp-root p { margin:0 }` (0,1,1) would beat Tailwind utilities
+   like `.mx-auto` (0,1,0) and break centering. */
+:where(.lp-root h1, .lp-root h2, .lp-root h3, .lp-root h4, .lp-root p, .lp-root figure, .lp-root dl, .lp-root dd) {
   margin: 0;
 }
-.lp-root ul,
-.lp-root ol {
+:where(.lp-root ul, .lp-root ol) {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.lp-root table {
+:where(.lp-root table) {
   border-collapse: collapse;
   border-spacing: 0;
 }
-.lp-root input,
-.lp-root button,
-.lp-root textarea,
-.lp-root select {
+:where(.lp-root input, .lp-root button, .lp-root textarea, .lp-root select) {
   font: inherit;
   color: inherit;
 }
-.lp-root button {
+:where(.lp-root button) {
   cursor: pointer;
 }
 
@@ -61,14 +53,30 @@
   .eyebrow {
     @apply text-xs font-bold tracking-widest2 text-brand-red;
   }
-  .reveal {
-    opacity: 0;
-    transform: translateY(26px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.is-visible {
+}
+
+/* Scroll reveal — content is visible by default and only hides/animates
+   once the component arms it via JS (data-armed). This guarantees text never
+   stays invisible if JS fails to run. Kept as plain CSS (outside @layer) so
+   it is never purged. */
+.lp-root .reveal {
+  opacity: 1;
+  transform: none;
+}
+.lp-root .reveal[data-armed="true"] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.lp-root .reveal[data-armed="true"].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-root .reveal[data-armed="true"] {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
+    transition: none;
   }
 }
 

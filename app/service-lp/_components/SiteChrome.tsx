@@ -38,13 +38,13 @@ export function Header() {
             href="#contact"
             className="rounded-full bg-[image:var(--red-grad)] px-5 py-2.5 text-sm font-bold text-white shadow-md transition-transform hover:scale-[1.03]"
           >
-            無料デモサイト依頼
+            無料で集客診断
           </a>
           <a
             href="#contact"
             className="rounded-full bg-[image:var(--orange-grad)] px-5 py-2.5 text-sm font-bold text-white shadow-md transition-transform hover:scale-[1.03]"
           >
-            オンライン無料相談
+            オンライン相談
           </a>
         </nav>
 
@@ -94,14 +94,14 @@ export function Header() {
             onClick={() => setOpen(false)}
             className="mt-2 rounded-full bg-[image:var(--red-grad)] px-5 py-3 text-center font-bold text-white"
           >
-            無料デモサイト依頼
+            無料で集客診断
           </a>
           <a
             href="#contact"
             onClick={() => setOpen(false)}
             className="rounded-full bg-[image:var(--orange-grad)] px-5 py-3 text-center font-bold text-white"
           >
-            オンライン無料相談
+            オンライン相談
           </a>
         </nav>
       </div>
@@ -122,11 +122,23 @@ export function Reveal({
 
   useEffect(() => {
     if (!ref) return;
+
+    // If observers aren't available, just show the content.
+    if (typeof IntersectionObserver === "undefined") {
+      ref.classList.add("is-visible");
+      return;
+    }
+
+    // Arm the hide+animate behavior only now that JS is running. If this
+    // effect never runs (no JS / hydration fails), the content stays visible.
+    ref.dataset.armed = "true";
+
+    const reveal = () => ref.classList.add("is-visible");
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            (e.target as HTMLElement).classList.add("is-visible");
+            reveal();
             io.unobserve(e.target);
           }
         });
@@ -134,7 +146,14 @@ export function Reveal({
       { threshold: 0.12 }
     );
     io.observe(ref);
-    return () => io.disconnect();
+
+    // Safety net: reveal anyway if the observer somehow hasn't fired.
+    const t = window.setTimeout(reveal, 1200);
+
+    return () => {
+      io.disconnect();
+      window.clearTimeout(t);
+    };
   }, [ref]);
 
   return (

@@ -17,9 +17,9 @@ const serif = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  title: "集客動線設計 | 合同会社NY33",
+  title: "Webドック（Web Dock）| 集客動線設計サービス｜合同会社NY33",
   description:
-    "戦略設計・Web実装・計測・自動化を一社で。因島・尾道発、地方の事業を伸ばす集客動線設計のパートナー。無料相談受付中。",
+    "Webドック（Web Dock）は、戦略設計・Web制作・計測・自動化を一社で行う集客動線設計サービス。因島・尾道発、地方の事業の集客を仕組みから設計します。無料相談受付中。",
   alternates: { canonical: "/service-lp" },
   robots: { index: true, follow: true },
 };

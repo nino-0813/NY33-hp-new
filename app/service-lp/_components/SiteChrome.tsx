@@ -34,18 +34,20 @@ export function Header() {
               {n.label}
             </a>
           ))}
-          <a
-            href="#contact"
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new CustomEvent("open-consult"))}
             className="rounded-full bg-[image:var(--red-grad)] px-5 py-2.5 text-sm font-bold text-white shadow-md transition-transform hover:scale-[1.03]"
           >
             無料で集客診断
-          </a>
-          <a
-            href="#contact"
+          </button>
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new CustomEvent("open-booking"))}
             className="rounded-full bg-[image:var(--orange-grad)] px-5 py-2.5 text-sm font-bold text-white shadow-md transition-transform hover:scale-[1.03]"
           >
             オンライン相談
-          </a>
+          </button>
         </nav>
 
         <button
@@ -89,20 +91,26 @@ export function Header() {
               {n.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            onClick={() => setOpen(false)}
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false);
+              window.dispatchEvent(new CustomEvent("open-consult"));
+            }}
             className="mt-2 rounded-full bg-[image:var(--red-grad)] px-5 py-3 text-center font-bold text-white"
           >
             無料で集客診断
-          </a>
-          <a
-            href="#contact"
-            onClick={() => setOpen(false)}
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false);
+              window.dispatchEvent(new CustomEvent("open-booking"));
+            }}
             className="rounded-full bg-[image:var(--orange-grad)] px-5 py-3 text-center font-bold text-white"
           >
             オンライン相談
-          </a>
+          </button>
         </nav>
       </div>
     </header>

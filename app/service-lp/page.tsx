@@ -1,5 +1,6 @@
 import { Header, Reveal } from "./_components/SiteChrome";
 import { LeadForm } from "./_components/LeadForm";
+import { LeadCTA } from "./_components/LeadCTA";
 
 /* ---------- data ---------- */
 
@@ -181,29 +182,6 @@ function Phone({
           </span>
         </div>
       </div>
-    </div>
-  );
-}
-
-function CTAButtons() {
-  return (
-    <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-      <a href="#contact" className="group flex flex-col items-center">
-        <span className="mb-1.5 rounded-full bg-ink px-3 py-0.5 text-[10px] font-bold text-white">
-          相談無料・営業なし
-        </span>
-        <span className="rounded-full bg-[image:var(--red-grad)] px-10 py-4 font-black text-white shadow-lg transition-transform group-hover:scale-[1.03]">
-          無料で集客診断
-        </span>
-      </a>
-      <a href="#contact" className="group flex flex-col items-center">
-        <span className="mb-1.5 rounded-full bg-ink px-3 py-0.5 text-[10px] font-bold text-white">
-          情報収集だけでもOK
-        </span>
-        <span className="rounded-full bg-[image:var(--orange-grad)] px-10 py-4 font-black text-white shadow-lg transition-transform group-hover:scale-[1.03]">
-          オンラインで相談する
-        </span>
-      </a>
     </div>
   );
 }
@@ -589,7 +567,7 @@ export default function Home() {
 
           <Reveal delay={120}>
             <div className="mt-14">
-              <CTAButtons />
+              <LeadCTA />
             </div>
           </Reveal>
         </div>
@@ -678,7 +656,7 @@ export default function Home() {
             ))}
           </div>
         </Reveal>
-        <CTAButtons />
+        <LeadCTA />
       </section>
 
       {/* ===== PARTNERS ===== */}
@@ -743,7 +721,7 @@ export default function Home() {
               ご相談は無料です。事業の状況をお聞きした上で、集客動線のどこに伸びしろがあるかをご提案します。
             </p>
             <div className="mt-10">
-              <CTAButtons />
+              <LeadCTA />
             </div>
           </Reveal>
         </div>

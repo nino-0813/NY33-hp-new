@@ -1,7 +1,8 @@
 import { getAdminClient, type ContactSubmission } from "../lib/supabase";
-import { isAuthed, logout } from "./actions";
+import { isAuthed } from "./actions";
 import { LoginForm } from "./_components/LoginForm";
 import { RowActions } from "./_components/RowActions";
+import { AdminNav } from "./_components/AdminNav";
 
 export const dynamic = "force-dynamic";
 
@@ -48,26 +49,17 @@ export default async function AdminPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-10">
-      <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-black text-ink">お問い合わせ管理</h1>
-          <p className="mt-1 text-sm text-ink/60">
-            service-lp（Webドック）フォーム · 全{rows.length}件
-            {newCount > 0 && (
-              <span className="ml-2 rounded-full bg-brand-red px-2 py-0.5 text-xs font-bold text-white">
-                新規 {newCount}
-              </span>
-            )}
-          </p>
-        </div>
-        <form action={logout}>
-          <button
-            type="submit"
-            className="rounded-full border border-ink/15 px-4 py-2 text-sm font-bold text-ink/70 hover:border-brand-red hover:text-brand-red"
-          >
-            ログアウト
-          </button>
-        </form>
+      <AdminNav active="/admin" />
+      <div className="mb-6">
+        <h1 className="text-2xl font-black text-ink">お問い合わせ管理</h1>
+        <p className="mt-1 text-sm text-ink/60">
+          フォーム（ヒーロー）からの送信 · 全{rows.length}件
+          {newCount > 0 && (
+            <span className="ml-2 rounded-full bg-brand-red px-2 py-0.5 text-xs font-bold text-white">
+              新規 {newCount}
+            </span>
+          )}
+        </p>
       </div>
 
       {loadError && (

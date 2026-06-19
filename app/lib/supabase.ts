@@ -39,3 +39,34 @@ export type ContactSubmission = {
   status: string;
   user_agent: string | null;
 };
+
+export type ChatConsultation = {
+  id: string;
+  created_at: string;
+  name: string | null;
+  email: string | null;
+  answers: Record<string, string>;
+  message: string | null;
+  source: string;
+  status: string;
+};
+
+export type BookingSlot = {
+  id: string;
+  created_at: string;
+  start_at: string;
+  duration_min: number;
+  status: string; // open | booked | closed
+};
+
+export type Booking = {
+  id: string;
+  created_at: string;
+  slot_id: string | null;
+  start_at: string;
+  name: string;
+  email: string;
+  phone: string | null;
+  note: string | null;
+  status: string;
+};

@@ -1,6 +1,20 @@
 "use server";
 
 import { getAdminClient, type BookingSlot } from "../lib/supabase";
+import { sendMail } from "../lib/mail";
+import { CONSULT_QUESTION_LABEL } from "../lib/consultQuestions";
+
+function fmtJst(iso: string): string {
+  return new Date(iso).toLocaleString("ja-JP", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    weekday: "short",
+    timeZone: "Asia/Tokyo",
+  });
+}
 
 /* ---------- 集客相談チャット ---------- */
 
@@ -33,6 +47,40 @@ export async function submitChat(payload: {
       console.error("[chat] insert error:", error);
       return { ok: false, error: "送信に失敗しました。時間をおいて再度お試しください。" };
     }
+
+    const answersText = Object.entries(payload.answers ?? {})
+      .map(([k, v]) => `- ${CONSULT_QUESTION_LABEL[k] ?? k}\n  → ${v}`)
+      .join("\n");
+
+    await sendMail({
+      replyTo: email,
+      subject: `[Webドック] 集客相談チャット: ${name} さま`,
+      text: [
+        "集客相談チャットから送信がありました。",
+        "",
+        `お名前: ${name}`,
+        `メール: ${email}`,
+        "",
+        "回答:",
+        answersText || "（なし）",
+        "",
+        "補足:",
+        payload.message?.trim() || "（なし）",
+      ].join("\n"),
+    });
+    await sendMail({
+      to: email,
+      subject: "【自動返信】ご相談を受け取りました｜合同会社NY33",
+      text: [
+        `${name} さま`,
+        "",
+        "ご相談ありがとうございます。いただいた内容をもとに、担当よりご連絡します。",
+        "",
+        "合同会社NY33（Webドック）",
+        "https://ny33.jp/service-lp",
+      ].join("\n"),
+    });
+
     return { ok: true };
   } catch (e) {
     console.error("[chat] unexpected:", e);
@@ -114,6 +162,37 @@ export async function bookSlot(payload: {
 
     // 枠を予約済みにする
     await supabase.from("lp_booking_slots").update({ status: "booked" }).eq("id", slot.id);
+
+    const when = fmtJst((slot as BookingSlot).start_at);
+    await sendMail({
+      replyTo: email,
+      subject: `[Webドック] オンライン相談の予約: ${name} さま（${when}）`,
+      text: [
+        "オンライン相談の予約が入りました。",
+        "",
+        `日時: ${when}`,
+        `お名前: ${name}`,
+        `電話: ${phone}`,
+        `メール: ${email}`,
+        "",
+        "相談内容:",
+        payload.note?.trim() || "（なし）",
+      ].join("\n"),
+    });
+    await sendMail({
+      to: email,
+      subject: "【自動返信】オンライン相談のご予約を受け付けました｜合同会社NY33",
+      text: [
+        `${name} さま`,
+        "",
+        "下記の日時でご予約を受け付けました。当日お電話します。",
+        "",
+        `日時: ${when}`,
+        "",
+        "合同会社NY33（Webドック）",
+        "https://ny33.jp/service-lp",
+      ].join("\n"),
+    });
 
     return { ok: true };
   } catch (e) {

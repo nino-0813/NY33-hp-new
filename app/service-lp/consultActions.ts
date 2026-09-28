@@ -3,6 +3,7 @@
 import { getAdminClient, type BookingSlot } from "../lib/supabase";
 import { sendMail } from "../lib/mail";
 import { CONSULT_QUESTION_LABEL } from "../lib/consultQuestions";
+import { formatAttribution, readAttribution, type Attribution } from "../lib/attribution";
 
 function fmtJst(iso: string): string {
   return new Date(iso).toLocaleString("ja-JP", {
@@ -25,6 +26,7 @@ export async function submitChat(payload: {
   name: string;
   email: string;
   message?: string;
+  attribution?: Attribution;
 }): Promise<ChatResult> {
   const name = payload.name?.trim();
   const email = payload.email?.trim();
@@ -66,6 +68,8 @@ export async function submitChat(payload: {
         "",
         "補足:",
         payload.message?.trim() || "（なし）",
+        "",
+        formatAttribution(readAttribution((k) => payload.attribution?.[k as keyof Attribution])),
       ].join("\n"),
     });
     await sendMail({
@@ -119,6 +123,7 @@ export async function bookSlot(payload: {
   email: string;
   phone: string;
   note?: string;
+  attribution?: Attribution;
 }): Promise<BookResult> {
   const name = payload.name?.trim();
   const email = payload.email?.trim();
@@ -177,6 +182,8 @@ export async function bookSlot(payload: {
         "",
         "相談内容:",
         payload.note?.trim() || "（なし）",
+        "",
+        formatAttribution(readAttribution((k) => payload.attribution?.[k as keyof Attribution])),
       ].join("\n"),
     });
     await sendMail({

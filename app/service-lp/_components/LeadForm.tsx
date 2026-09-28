@@ -1,12 +1,19 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
+
+import { AttributionFields } from "../../components/AttributionFields";
+import { track } from "../../lib/analytics";
 import { submitLead, type LeadFormState } from "../actions";
 
 const initial: LeadFormState = { ok: false };
 
 export function LeadForm() {
   const [state, formAction, pending] = useActionState(submitLead, initial);
+
+  useEffect(() => {
+    if (state.ok) track("generate_lead", { form_id: "service_lp" });
+  }, [state.ok]);
 
   if (state.ok) {
     return (
@@ -39,6 +46,7 @@ export function LeadForm() {
       </p>
 
       <form action={formAction} className="mt-6 space-y-4">
+        <AttributionFields />
         {/* honeypot（人間には見えない） */}
         <input
           type="text"

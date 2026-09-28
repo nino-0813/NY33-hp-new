@@ -2,6 +2,8 @@
 
 import { Resend } from "resend";
 
+import { formatAttribution, readAttribution } from "../lib/attribution";
+
 // 受信先（Vercel環境変数で上書き可）。デフォルトは llc33.company@gmail.com
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL || "llc33.company@gmail.com";
 
@@ -46,6 +48,7 @@ export async function submitContactForm(
   const message = String(formData.get("message") || "").trim();
   const consent = formData.get("consent");
   const honeypot = String(formData.get("website") || "");
+  const attribution = readAttribution((k) => formData.get(k));
 
   // ───── スパム対策（ハニーポット）─────
   if (honeypot) {
@@ -102,6 +105,8 @@ export async function submitContactForm(
     "詳細・現在地:",
     message || "（記載なし）",
     "─────────────────────────────",
+    "",
+    formatAttribution(attribution),
     "",
     "返信は Reply-To 経由でそのまま相手に届きます。",
     "合同会社NY33 お問い合わせフォーム"

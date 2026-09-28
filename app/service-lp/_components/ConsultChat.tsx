@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { CONSULT_QUESTIONS } from "../../lib/consultQuestions";
 import { submitChat } from "../consultActions";
+import { getAttribution, track } from "../../lib/analytics";
 
 type Msg = { role: "bot" | "user"; text: string };
 
@@ -53,12 +54,13 @@ export function ConsultChat({ onClose }: { onClose: () => void }) {
   async function send() {
     setError(null);
     setSending(true);
-    const res = await submitChat({ answers, name, email, message });
+    const res = await submitChat({ answers, name, email, message, attribution: getAttribution() });
     setSending(false);
     if (!res.ok) {
       setError(res.error ?? "送信に失敗しました。");
       return;
     }
+    track("chat_consult_submit", { form_id: "service_lp_chat" });
     setDone(true);
     setMessages((m) => [
       ...m,

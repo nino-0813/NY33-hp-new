@@ -28,6 +28,7 @@ export function LeadCTA() {
         <button
           type="button"
           onClick={() => setOpen("consult")}
+          data-track-cta="lp_open_consult"
           className="group flex flex-col items-center"
         >
           <span className="mb-1.5 rounded-full bg-ink px-3 py-0.5 text-[10px] font-bold text-white">
@@ -40,6 +41,7 @@ export function LeadCTA() {
         <button
           type="button"
           onClick={() => setOpen("booking")}
+          data-track-cta="lp_open_booking"
           className="group flex flex-col items-center"
         >
           <span className="mb-1.5 rounded-full bg-ink px-3 py-0.5 text-[10px] font-bold text-white">

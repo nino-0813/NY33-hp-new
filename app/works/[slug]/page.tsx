@@ -145,7 +145,7 @@ export default async function WorkDetail({
                 まずは無料の Webドック診断 をお試しください。
               </p>
               <div className="post-footer-actions">
-                <Link className="link-btn" href="/contact">
+                <Link className="link-btn" href="/contact" data-track-cta="works_contact">
                   <span>CONTACT</span>
                 </Link>
                 <Link className="link-btn-arrow" href="/works">

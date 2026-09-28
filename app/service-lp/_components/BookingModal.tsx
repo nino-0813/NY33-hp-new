@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { listOpenSlots, bookSlot } from "../consultActions";
+import { getAttribution, track } from "../../lib/analytics";
 import type { BookingSlot } from "../../lib/supabase";
 
 function dayLabel(iso: string): string {
@@ -50,12 +51,20 @@ export function BookingModal({ onClose }: { onClose: () => void }) {
     if (!selected) return;
     setError(null);
     setSending(true);
-    const res = await bookSlot({ slotId: selected.id, name, email, phone, note });
+    const res = await bookSlot({
+      slotId: selected.id,
+      name,
+      email,
+      phone,
+      note,
+      attribution: getAttribution()
+    });
     setSending(false);
     if (!res.ok) {
       setError(res.error ?? "予約に失敗しました。");
       return;
     }
+    track("booking_submit", { form_id: "service_lp_booking" });
     setDone(true);
   }
 

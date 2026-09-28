@@ -83,10 +83,14 @@ function ClickTracker() {
 }
 
 export function GoogleAnalytics() {
+  // gtag が無ければ track は何もしないので、トラッカーは常にマウントする
   const tracker = (
-    <Suspense fallback={null}>
-      <PageViewTracker />
-    </Suspense>
+    <>
+      <Suspense fallback={null}>
+        <PageViewTracker />
+      </Suspense>
+      <ClickTracker />
+    </>
   );
 
   // 開発環境では GA4 に送信しない（アトリビューションの記録のみ行う）
@@ -110,7 +114,6 @@ export function GoogleAnalytics() {
         `}
       </Script>
       {tracker}
-      <ClickTracker />
     </>
   );
 }

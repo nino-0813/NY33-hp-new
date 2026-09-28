@@ -3,6 +3,7 @@
 import { headers } from "next/headers";
 import { getAdminClient } from "../lib/supabase";
 import { sendMail } from "../lib/mail";
+import { formatAttribution, readAttribution } from "../lib/attribution";
 
 export type LeadFormState = {
   ok: boolean;
@@ -17,6 +18,7 @@ export async function submitLead(
   const email = String(formData.get("email") || "").trim();
   const message = String(formData.get("message") || "").trim();
   const honeypot = String(formData.get("website") || "");
+  const attribution = readAttribution((k) => formData.get(k));
 
   // スパム対策（ハニーポット）：bot は成功扱いで握りつぶす
   if (honeypot) return { ok: true };
@@ -58,6 +60,8 @@ export async function submitLead(
         "",
         "内容:",
         message || "（記載なし）",
+        "",
+        formatAttribution(attribution),
       ].join("\n"),
     });
     // 送信者への自動返信

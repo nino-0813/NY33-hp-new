@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 
+import { AttributionFields } from "../components/AttributionFields";
+import { track } from "../lib/analytics";
 import { submitContactForm, type ContactFormState } from "./actions";
 
 const intents = [
@@ -19,6 +21,10 @@ const initialState: ContactFormState = { ok: false };
 
 export function ContactForm() {
   const [state, formAction, pending] = useActionState(submitContactForm, initialState);
+
+  useEffect(() => {
+    if (state.ok) track("generate_lead", { form_id: "contact" });
+  }, [state.ok]);
 
   if (state.ok) {
     return (
@@ -54,6 +60,8 @@ export function ContactForm() {
 
   return (
     <form action={formAction} className="contact-form" noValidate>
+      <AttributionFields />
+
       {/* honeypot — 人間からは見えないbot罠 */}
       <div className="contact-honeypot" aria-hidden="true">
         <label>

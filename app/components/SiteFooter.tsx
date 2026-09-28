@@ -51,9 +51,9 @@ const snsLinks = [
   { label: "Facebook", href: "#contact" }
 ];
 
-function ArrowLink({ href, label }: { href: string; label: string }) {
+function ArrowLink({ href, label, cta }: { href: string; label: string; cta?: string }) {
   return (
-    <a className="link-btn-arrow" href={href}>
+    <a className="link-btn-arrow" href={href} data-track-cta={cta}>
       <span className="text-wrap">
         <span className="text">{label}</span>
         <span className="text mask">{label}</span>
@@ -96,7 +96,7 @@ export function SiteFooter() {
               瀬戸内の経営者の航海を支えるチームを広げています。
             </p>
             <div className="btn-line">
-              <ArrowLink href="/contact" label="READ MORE" />
+              <ArrowLink href="/contact" label="READ MORE" cta="footer_dock_contact" />
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@ export function SiteFooter() {
               Webドック診断は無料で承ります。航海の前に、まず現在地を確認しませんか。
             </p>
             <div className="btn-line">
-              <ArrowLink href="/contact" label="CONTACT US" />
+              <ArrowLink href="/contact" label="CONTACT US" cta="footer_contact" />
             </div>
           </div>
         </div>

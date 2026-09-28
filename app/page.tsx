@@ -251,7 +251,7 @@ export default function Home() {
                 </div>
               </dl>
               <div className="btn-line">
-                <Link className="link-btn-arrow" href="/contact">
+                <Link className="link-btn-arrow" href="/contact" data-track-cta="home_contact">
                   <span className="text-wrap">
                     <span className="text">CONTACT US</span>
                     <span className="text mask">CONTACT US</span>
